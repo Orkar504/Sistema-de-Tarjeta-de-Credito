@@ -43,10 +43,23 @@ namespace Sistema_de_Tarjeta_de_Credito
             {
                 app.UseExceptionHandler("/Error");
             }
+            app.UseHttpsRedirection();  
+            app.UseStaticFiles();   
+
+            app.UseRouting();
+
+            app.UseAuthentication();        
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
         }
         public void Configure(IApplicationBuilder app)
         {
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         }
+
+        
     }
 }
