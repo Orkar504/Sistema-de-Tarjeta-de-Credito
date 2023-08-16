@@ -26,6 +26,8 @@ namespace Sistema_de_Tarjeta_de_Credito
             services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
             {
                 options.Cookie.Name = "MyCookieAuth";
+                options.LoginPath = "/Account/Login"; // especifica la página del Login
+              
             });
             
                 
