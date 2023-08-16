@@ -36,10 +36,10 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
         }
 
-        public void onPost()
+        public async Task<IActionResult> onPostAsync()
         {
     
-            if (!ModelState.IsValid) return;
+            if (!ModelState.IsValid) return Page();
 
             // Para la verificación de las credenciales
             if(crendencial.EmpleadoId == "0000" && crendencial.Password == "contra")
@@ -55,8 +55,10 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
 
                 HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
-            }
 
+                return RedirectToPage("/Index");
+            }
+            return Page();
      
         }
 
