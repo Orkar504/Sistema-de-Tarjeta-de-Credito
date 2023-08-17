@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Sistema_de_Tarjeta_de_Credito.Data;
 
-const string galleta = "cookie";
+const string galleta = "cookie"; // define el nombre de la cookie
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -16,6 +16,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+//Para genera las cookies
 builder.Services.AddAuthentication().AddCookie(galleta, options =>
 {
 
