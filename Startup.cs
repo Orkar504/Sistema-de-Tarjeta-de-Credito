@@ -13,6 +13,7 @@ namespace Sistema_de_Tarjeta_de_Credito
 {
     public class Startup
     {
+        const string galleta = "cookie"; //para crear una cookies
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -23,11 +24,11 @@ namespace Sistema_de_Tarjeta_de_Credito
         //This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+            services.AddAuthentication(galleta).AddCookie(galleta, options =>
             {
-                options.Cookie.Name = "MyCookieAuth";
-                options.LoginPath = "/Account/Login"; // especifica la página del Login
-                options.LoginPath = "/Account/AccessDenied"; // Especifícala ´página del acceso denegado
+                options.Cookie.Name = galleta;
+                options.LoginPath = "Identity/Account/Login"; // especifica la página del Login
+                options.AccessDeniedPath = "Identity/Account/AccessDenied"; // Especifícala ´página del acceso denegado
 
               
             });
@@ -35,7 +36,7 @@ namespace Sistema_de_Tarjeta_de_Credito
             services.AddAuthorization(options =>
             {
                 //Genera una política que solo permite a los usuarios del Departamento de Solicitudes accedan a X página con esta política
-                options.AddPolicy("DebePertenecerAEmpleado", policy => policy.RequireClaim("Departamento", "Solicitudes"));
+                options.AddPolicy("Empleado", policy => policy.RequireClaim("Puesto", "Solicitudes"));
 
             });
             services.AddRazorPages();
@@ -51,6 +52,8 @@ namespace Sistema_de_Tarjeta_de_Credito
             else
             {
                 app.UseExceptionHandler("/Error");
+
+                app.UseHsts();
             }
             app.UseHttpsRedirection();  
             app.UseStaticFiles();   
@@ -59,6 +62,8 @@ namespace Sistema_de_Tarjeta_de_Credito
 
             app.UseAuthentication();        
             app.UseAuthorization();
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

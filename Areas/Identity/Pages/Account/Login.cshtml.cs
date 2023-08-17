@@ -23,11 +23,12 @@ using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Security.Claims;
 
+
 namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
-      
+        const string galleta = "cookie";//para crear una cookies
 
         [BindProperty]
         public Credencial crendencial { get; set; }
@@ -49,14 +50,15 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
                 //Esto es un usuario de Ejemplo
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name,"0000"),
-                    new Claim("Departamento","Solicitudes") //En base a la política creada
+                    new Claim("Puesto","Solicitudes") //En base a la política creada
                 };
-                var identidad = new ClaimsIdentity(claims, "MyCookieAuth");
+
+                var identidad = new ClaimsIdentity(claims, galleta);
 
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identidad);
 
 
-                HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
+                await HttpContext.SignInAsync(galleta, claimsPrincipal);
 
                 return RedirectToPage("/Index");
             }
@@ -75,16 +77,6 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
             public string Password { get; set; }
 
         }
-        public class datos
-        {
-            [Required]
-            [Display(Name = "ID del Empleado")]
-            public int EmpleadoId { get; set; }
-
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-        }
+       
     }
 }
