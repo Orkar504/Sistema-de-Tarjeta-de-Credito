@@ -34,45 +34,30 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
         public Credencial crendencial { get; set; }
         public void onGet()
         {
-
+            
         }
 
 
-      /*  public async Task<IActionResult> onPostAsync()
+      
+        public async Task<IActionResult>  OnPostAsync()
         {
-    
             if (!ModelState.IsValid) return Page();
-            Console.WriteLine("Adentro");
-            // Para la verificación de las credenciales
-            if(crendencial.Password == "contra" && crendencial.EmpleadoId =="admin")
+            if(crendencial.EmpleadoId =="admin" && crendencial.Password =="contrasena")
             {
-                Console.WriteLine("Adentro");
-                //Creando Contexto para la seguridad
-
-                //Esto es un usuario de Ejemplo
-                var claims = new List<Claim> {
-                    new Claim("EmpleadoId","0000"),
-                    new Claim(ClaimTypes.Name, "admin"),
-                    new Claim("Puesto","Solicitudes") //En base a la política creada
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,"admin")
                 };
+                var indentidad = new ClaimsIdentity(claims, galleta);
 
-                var identidad = new ClaimsIdentity(claims, galleta);
+                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(indentidad);
 
-                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identidad);
-
-
-                await HttpContext.SignInAsync(galleta, claimsPrincipal);
+               await HttpContext.SignInAsync(galleta, claimsPrincipal);
 
                 return RedirectToPage("/Index");
             }
-            Console.WriteLine("Afuera");
             return Page();
-     
-        } */
-        public void OnPost()
-        {
-
-        }
+        } 
         public class Credencial
         {
             [Required]
