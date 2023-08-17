@@ -27,6 +27,7 @@ namespace Sistema_de_Tarjeta_de_Credito
             {
                 options.Cookie.Name = "MyCookieAuth";
                 options.LoginPath = "/Account/Login"; // especifica la página del Login
+                options.LoginPath = "/Account/AccessDenied"; // Especifícala ´página del acceso denegado
 
               
             });
