@@ -18,7 +18,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddRazorPages();
 
 //Para genera las cookies
-builder.Services.AddAuthentication().AddCookie(galleta, options =>
+builder.Services.AddAuthentication(galleta).AddCookie(galleta, options =>
 {
 
     options.Cookie.Name = galleta;
@@ -50,5 +50,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+});
 app.Run();
