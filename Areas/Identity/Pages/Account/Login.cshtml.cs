@@ -46,8 +46,10 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
             {
                 //Creando Contexto para la seguridad
 
+                //Esto es un usuario de Ejemplo
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name,"0000"),
+                    new Claim("Departamento","Solicitudes") //En base a la política creada
                 };
                 var identidad = new ClaimsIdentity(claims, "MyCookieAuth");
 
