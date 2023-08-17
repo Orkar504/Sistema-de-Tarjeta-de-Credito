@@ -37,19 +37,22 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
         }
 
-        public async Task<IActionResult> onPostAsync()
+
+      /*  public async Task<IActionResult> onPostAsync()
         {
     
             if (!ModelState.IsValid) return Page();
-
+            Console.WriteLine("Adentro");
             // Para la verificación de las credenciales
-            if(crendencial.EmpleadoId == "0000" && crendencial.Password == "contra")
+            if(crendencial.Password == "contra" && crendencial.EmpleadoId =="admin")
             {
+                Console.WriteLine("Adentro");
                 //Creando Contexto para la seguridad
 
                 //Esto es un usuario de Ejemplo
                 var claims = new List<Claim> {
-                    new Claim(ClaimTypes.Name,"0000"),
+                    new Claim("EmpleadoId","0000"),
+                    new Claim(ClaimTypes.Name, "admin"),
                     new Claim("Puesto","Solicitudes") //En base a la política creada
                 };
 
@@ -62,10 +65,14 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
                 return RedirectToPage("/Index");
             }
+            Console.WriteLine("Afuera");
             return Page();
      
-        }
+        } */
+        public void OnPost()
+        {
 
+        }
         public class Credencial
         {
             [Required]

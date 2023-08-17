@@ -14,6 +14,12 @@ namespace Sistema_de_Tarjeta_de_Credito
     public class Startup
     {
         const string galleta = "cookie"; //para crear una cookies
+
+
+
+
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
