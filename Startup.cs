@@ -15,11 +15,6 @@ namespace Sistema_de_Tarjeta_de_Credito
     {
         const string galleta = "cookie"; //para crear una cookies
 
-
-
-
-
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,19 +25,11 @@ namespace Sistema_de_Tarjeta_de_Credito
         //This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(galleta).AddCookie(galleta, options =>
+            services.AddAuthentication().AddCookie(galleta, options =>
+
+
             {
                 options.Cookie.Name = galleta;
-                options.LoginPath = "Identity/Account/Login"; // especifica la página del Login
-                options.AccessDeniedPath = "Identity/Account/AccessDenied"; // Especifícala ´página del acceso denegado
-
-              
-            });
-
-            services.AddAuthorization(options =>
-            {
-                //Genera una política que solo permite a los usuarios del Departamento de Solicitudes accedan a X página con esta política
-                options.AddPolicy("Empleado", policy => policy.RequireClaim("Puesto", "Solicitudes"));
 
             });
             services.AddRazorPages();
