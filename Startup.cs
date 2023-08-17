@@ -27,10 +27,16 @@ namespace Sistema_de_Tarjeta_de_Credito
             {
                 options.Cookie.Name = "MyCookieAuth";
                 options.LoginPath = "/Account/Login"; // especifica la página del Login
+
               
             });
-            
-                
+
+            services.AddAuthorization(options =>
+            {
+                //Genera una política que solo permite a los usuarios del Departamento de Solicitudes accedan a X página con esta política
+                options.AddPolicy("DebePertenecerAEmpleado", policy => policy.RequireClaim("Departamento", "Solicitudes"));
+
+            });
             services.AddRazorPages();
         }
 
@@ -57,10 +63,7 @@ namespace Sistema_de_Tarjeta_de_Credito
                 endpoints.MapRazorPages();
             });
         }
-        public void Configure(IApplicationBuilder app)
-        {
-            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        }
+       
 
         
     }
