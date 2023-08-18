@@ -1,0 +1,58 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Cuentas.CuentaModel
+@{
+}
+
+
+<div clase="container-fluid">
+    <h4>Cuenta</h4>
+    <hr />
+    <div>
+        <a class="btn btn-primary" asp-page="./Cuenta">crear</a>
+        <a class="btn btn-primary" asp-page="./Cuenta">Modificar</a>
+        <a class="btn btn-primary" asp-page="./Cuenta">Eliminar</a>
+    </div>
+
+
+    <!-- Esta tabla solo es un ejemplo-->
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th class="col-sm-2">numero cuenta</th>
+                <th class="col-sm-2">Saldo</th>
+                <th class="col-sm-2">Cliente</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var num in Model.aaa)
+            {
+                <tr>
+                    <td class="col-sm-2">
+                        43827398
+                    </td>
+                    <td class="col-sm-2">
+                        1,000.00
+                    </td>
+                    <td class="col-sm-2">
+                        cliente 1
+                    </td>
+                    <td class="col-sm-2">
+                        <a class="btn btn-primary" asp-page="./EstadoCuenta"> Ver estado de cuenta</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+</div>
