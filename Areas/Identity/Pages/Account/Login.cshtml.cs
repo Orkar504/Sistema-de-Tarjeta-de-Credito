@@ -40,8 +40,10 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
       
         public async Task<IActionResult>  OnPostAsync()
+        
         {
             if (!ModelState.IsValid) return Page();
+            //Este es un ejemplo de como se debería de hacer la verificación con diferentes usuarios
             if(crendencial.EmpleadoId =="admin" && crendencial.Password =="contrasena")
             {
                 var claims = new List<Claim>
