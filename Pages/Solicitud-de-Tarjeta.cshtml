@@ -83,20 +83,66 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class=" btn btn-primary" value="Login" />
+            <p class="fs-1 ">Datos-de-Dirección</p>
+
+            <div class="mb-3">
+                <label for="calle" class="form-label">Calle</label>
+                <input class="form-control form-control-lg" type="text" placeholder="calle las rosas"
+                       aria-label="Contenedor de el nombre de la calle" id="calle" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
                 </div>
             </div>
+
+            <div class="mb-3">
+                <label for="avenida" class="form-label">Avenida</label>
+                <input class="form-control form-control-lg" type="text" placeholder="primera avenida"
+                       aria-label="Nombre de la avenida" id="avenida" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="referencia" class="form-label">Referencia Geográfica</label>
+                <textarea class="form-control form-control-lg" type="text" placeholder="detras de un arbol de mangos junto a la catedral"
+                       aria-label="Referencia Geográfica" id="referencia" required></textarea>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="numeroVivienda" class="form-label">número de vivienda/Apartamento</label>
+                <input class="form-control form-control-lg" type="text" placeholder="numero de vivienda"
+                       aria-label="número de vivienda" id="númeroVivienda" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
+
+
+            <!-- Selección de Pais -->
+            <div class="mb-3">
+                <label for="Country-Selector" class="form-label">País</label>
+                <select class="form-select" aria-label="Tipo de identificación" id="Country-Selector" required>
+                    <!--  <option selected> Seleccione el tipo de identificación</option> -->
+                    <option value="2" id="HN" name="ID">Honduras</option>
+                    <option value="1" id="MX" name="pasaporte">Estados Unidos Mexicanos</option>
+                    <option value="3" id="USA" name="RTN">Estados Unidos de América</option>
+                </select>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+
+
+            </div>
+
+
         </form>
 
     </div>
 
-    <p class="fs-1 ">Datos-de-Dirección</p>
-   <form class="form-inline needs-validation" method="POST" novalidate>
 
-
-
-   </form>
 
 </div>
