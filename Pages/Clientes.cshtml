@@ -4,17 +4,7 @@
     ViewData["Title"] = "Clientes";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista de Clientes</title>
-    <!-- Agrega los enlaces a las hojas de estilo de Bootstrap y tu archivo de estilos personalizado -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+
     <div class="container">
         <div class="mb-4">
             <h1 class="mt-4 mb-4">Lista de Clientes</h1>
@@ -37,15 +27,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td class="col-sm-2">
+                            <a class="btn btn-primary" asp-page="./Datos_Clientes"> Ver Datos Completos</a>
+                        </td>
+                    </tr>
                     <!-- Aquí puedes generar dinámicamente las filas de la tabla con datos de la base de datos -->
                     <!-- Utiliza un lenguaje de programación en el backend para obtener y procesar los datos -->
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- Agrega tus scripts al final del archivo -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
 
