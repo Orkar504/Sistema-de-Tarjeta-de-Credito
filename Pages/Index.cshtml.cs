@@ -15,7 +15,7 @@ namespace Sistema_de_Tarjeta_de_Credito.Pages
         }
 
         public void OnGet()
-        {
+        { 
 
         }
     }
