@@ -10,6 +10,7 @@
     
 </divclass>
 <div >
+    <!--Forma para la tabla persona-->
     <div class=" container">
         <form class="form-inline needs-validation" method="POST" novalidate>
             <p class="fs-1 text-center"> Datos Personales</p>
@@ -49,11 +50,13 @@
                 </div>
             </div>
 
+            <!-- comentar -->
             <div class="mb-3">
-                <select class="form-select" aria-label="Tipo de identificación" required>
-                    <option selected> Seleccione el tipo de identificación</option>
-                    <option value="1" id="Pasaporte" name="pasaporte">Pasaporte</option>
+                <label for="Document-Selector" class="form-label">Tipo de documentode Identificación</label>
+                <select class="form-select" aria-label="Tipo de identificación" id="Document-Selector"required>
+                    <!--  <option selected> Seleccione el tipo de identificación</option> -->
                     <option value="2" id="ID" name="ID">Identificación Nacional</option>
+                    <option value="1" id="Pasaporte" name="pasaporte">Pasaporte</option>
                     <option value="3" id=" RTN" name="RTN">RTN</option>
                 </select>
                 <div class="invalid-feedback">
@@ -71,6 +74,14 @@
                     Este campo es obligatorio
                 </div>
             </div>
+            <div class="mb-3">
+                <label for="pNombre" class="form-label">Correo Electrónico</label>
+                <input class="form-control form-control-lg" type="email" placeholder="nombre@dominio.com"
+                       aria-label="Contenedor del correo electrónico" id="pNombre" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+            </div>
 
             <div class="form-group row">
                 <div class="col-2">
@@ -80,5 +91,12 @@
         </form>
 
     </div>
+
+    <p class="fs-1 ">Datos-de-Dirección</p>
+   <form class="form-inline needs-validation" method="POST" novalidate>
+
+
+
+   </form>
 
 </div>
