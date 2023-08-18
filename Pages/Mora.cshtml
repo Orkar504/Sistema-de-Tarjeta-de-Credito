@@ -1,0 +1,55 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Pages_Mora
+@{
+    ViewData["Title"] = "Mora";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Moras</title>
+    <!-- Enlace al archivo de estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Consulta de Moras</h1>
+        <div class="mb-4">
+            <button id="btnAdd" class="btn btn-success mr-2">Agregar</button>
+            <button id="btnRefresh" class="btn btn-primary mr-2">Actualizar</button>
+            <button id="btnPrint" class="btn btn-info">Imprimir</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Mora</th>
+                        <th>Fecha</th>
+                        <th>Meses</th>
+                        <th>Monto Adecuado</th>
+                        <th>Nombre Completo Cliente</th>
+                        <th>Atrasado</th>
+                        <th>Al corriente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="morasData">
+                    <!-- Datos de moras se cargarán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Los enlace al archivo de scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
