@@ -54,9 +54,9 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
 
                await HttpContext.SignInAsync(galleta, claimsPrincipal);
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Index"); // Redirige al Index
             }
-            return Page();
+            return Page();// Reinicia la página
         } 
         public class Credencial
         {
