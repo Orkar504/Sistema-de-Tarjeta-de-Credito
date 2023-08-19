@@ -48,8 +48,8 @@ namespace Sistema_de_Tarjeta_de_Credito.Areas.Identity.Pages.Account
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,"admin")
-                    
+                    new Claim(ClaimTypes.Name,"admin"),
+                    new Claim("Departamento","S") //Departamento es el tipo y s el valor
                 };
                 var indentidad = new ClaimsIdentity(claims, galleta);
 
