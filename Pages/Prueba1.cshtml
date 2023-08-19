@@ -1,0 +1,33 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Prueba1Model
+@{
+}
+
+<divclass class="Text center"></divclass>
+<p class="fs-1">Prueba para el envio de datos y permisos de usuario con postgres</p>
+<div>
+    <div class="container">
+
+
+          <form class="form-inline needs-validation" method="POST" novalidate>
+            <p class="fs-1 text-center"> Datos Personales</p>
+            <div class="mb-3">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <input class="form-control form-control-lg" type="text" placeholder="Primer Nombre"
+                       aria-label="Contenedor de primer nombre" id="Nombre" required>
+                <div class="invalid-feedback">
+                    Este campo es obligatorio
+                </div>
+
+                <div class="mb-3">
+                    <label for="Identidad" class="form-label">Nombre</label>
+                    <input class="form-control form-control-lg" type="text" placeholder="Identidad"
+                           aria-label="Contenedor de primer nombre" id="Identidad" required>
+                    <div class="invalid-feedback">
+                        Este campo es obligatorio
+                    </div>
+            </div>
+          </form>
+    </div>
+
+</div>
