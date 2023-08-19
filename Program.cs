@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Sistema_de_Tarjeta_de_Credito.Data;
 
 const string galleta = "cookie"; // define el nombre de la cookie
-const string LoginPath = "Areas/Identity/Pages/Account/Login";
-const string accessDenied = "Area/Identity/Pages/Account/AccessDenied";
+const string LoginPath = "/Account/Login";
+const string accessDenied = "/AccessDenied";
 
 
 var builder = WebApplication.CreateBuilder(args);
