@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Sistema_de_Tarjeta_de_Credito.Data;
 
 const string galleta = "cookie"; // define el nombre de la cookie
-const string LoginPath = "/Account/Login";
-const string accessDenied = "/AccessDenied";
+const string LoginPath = "/Identity/Account/Login";
+const string accessDenied = "/Identity/Account/AccessDenied";
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,13 +21,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("Solicitudes", 
-        policy => policy.RequireClaim("Departamento", "S")); //Se utiliza S para solicitudes
 
-
-});
 
 //Para genera las cookies y hacer las autenticaciones necesarias
 builder.Services.AddAuthentication(galleta).AddCookie(galleta, options =>
@@ -38,7 +32,13 @@ builder.Services.AddAuthentication(galleta).AddCookie(galleta, options =>
     options.AccessDeniedPath = accessDenied;
 });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Solicitudes",
+        policy => policy.RequireClaim("Departamento", "S")); //Se utiliza S para solicitudes
 
+
+});
 
 var app = builder.Build();
 
@@ -55,6 +55,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 
 app.UseHttpsRedirection();
