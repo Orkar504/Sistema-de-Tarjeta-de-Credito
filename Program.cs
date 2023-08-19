@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Sistema_de_Tarjeta_de_Credito.Data;
 
 const string galleta = "cookie"; // define el nombre de la cookie
+const string LoginPath = "Areas/Identity/Pages/Account/Login";
+const string accessDenied = "Area/Identity/Pages/Account/AccessDenied";
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -17,12 +21,24 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
-//Para genera las cookies
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Solicitudes", 
+        policy => policy.RequireClaim("Departamento", "S")); //Se utiliza S para solicitudes
+
+
+});
+
+//Para genera las cookies y hacer las autenticaciones necesarias
 builder.Services.AddAuthentication(galleta).AddCookie(galleta, options =>
 {
 
     options.Cookie.Name = galleta;
+    options.LoginPath = LoginPath; //Se utiliza la constante LoginPath por si requiere hacer cambios no se deba realizar en todos lados
+    options.AccessDeniedPath = accessDenied;
 });
+
+
 
 var app = builder.Build();
 
@@ -46,7 +62,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();
+app.UseAuthentication(); //MiddleWare
 app.UseAuthorization();
 
 app.MapRazorPages();
