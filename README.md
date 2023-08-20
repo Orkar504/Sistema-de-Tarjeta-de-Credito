@@ -704,7 +704,7 @@ Esta tabla se encarga de almacenar los diferentes telefonos.
 -  El atributo **cliente-id** es una **llave Foranea** y la identificacion para el cliente, hacer referencia al atributo **cliente_id** en la tabla **cliente**
   
 
-  ### Tarjeta
+### Tarjeta
 ```
 create table Tarjeta(
 	Tarjeta_ID integer,
