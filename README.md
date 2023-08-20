@@ -729,29 +729,49 @@ create table Tarjeta(
 ```
 #### Ejemplo de la tabla
 
+| estado_cuenta_id | num_cuenta | cliente_id | cuenta_id | pago_minimo | pago_total | plazo_meses | puntos_totales | puntos_obtenidos | limite_credito | credito_disponible | fecha_maxima_pago | fecha_corte   |
+|------------------|------------|------------|-----------|-------------|------------|-------------|----------------|------------------|----------------|--------------------|-------------------|---------------|
+| 1                | 1010       | 1          | 1         | 10000       | 1000000    | 10          | 1000           | 925              | 100000         | 50                 | 2023-09-10        | 2023-09-15    |
 
-
-| Tarjeta_ID | PIN   | CVC  | Numero_Tarjeta    | Fecha_Emision | Fecha_Vencimiento | Costo_Membresia | Interes_anual | Interes_Mensual | compania_ID | Cliente_ID | Sucursal_ID | CuentaID |
-|------------|-------|------|-------------------|---------------|-------------------|-----------------|---------------|-----------------|-------------|------------|-------------|----------|
-| 1          | 1234  | 567  | 1234567890123456 | 2022-03-15    | 2024-03-15        | 150.00          | 18.00         | 1.50            | 1        | 1     | 1        | 1   |
 
 
 
 Esta tabla se encarga de almacenar los datos de las tarjetas de los cuenta habientes de tarjeta de crédito
 
-- El atributo **Tarjeta_id** es  la **Llave Primaria** y es la identificacion de la tarjeta en el sistema
-- El atributo **PIN** es el pin de la tarjeta
-- El atributo **CVC** es el CVC de la tarjeta
-- El atributo **Numero_Tarjeta** es el numero de la tarjeta
-- El atributo **fecha_Emision** es el fecha de emision de la tarjeta
- >En este caso funciona de la siguiente manera: año/dia/mes
-- El atributo **fecha_Vencimiento** es el fecha de vencimiento de la tarjeta
- >En este caso funciona de la siguiente manera: año/dia/mes
-- El atributo **Interes_anual** es el interes anual de la tarjeta
-- El atributo **Interes_Mensual** es el interes mensual de la tarjeta
-- El atributo **comania_id** es el id de la compania que emite  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **compania_Id** de la tabla **compania_tarjeta**
--  El atributo **cliente_id** es el id del cliente  que posee la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **cliente_Id** de la tabla **Cliente**
--  El atributo **sucursal_id** es el id de la sucursal  que emitio  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **sucursal_Id** de la tabla **Sucursal**
--  El atributo **cuenta_id** es el id de la cuenta a la que esta ligada  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **cuenta_Id** de la tabla **Cuenta**
--  
+- El atributo **estado_cuenta_id**: Identificación única del estado de cuenta. Llave Primaria en la tabla.
+- El atributo **num_cuenta**: Número de cuenta asociado con el estado de cuenta.
+- El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**.
+- El atributo **cuenta_id**: ID de la cuenta asociada con el estado de cuenta. es una **Llave Foránea** que referencia **cuenta_Id** en la tabla **Cuenta**.
+- El atributo **pago_minimo**: Monto mínimo a pagar en el estado de cuenta.
+- El atributo **pago_total**: Monto total adeudado en el estado de cuenta.
+- El atributo **plazo_meses**: Número de meses considerados en el plazo del estado de cuenta.
+- El atributo **puntos_totales**: Cantidad total de puntos asociados con el estado de cuenta.
+- El atributo **puntos_obtenidos**: Cantidad de puntos obtenidos en el estado de cuenta.
+- El atributo **limite_credito**: Límite de crédito asignado al estado de cuenta.
+credito_disponible: Monto de crédito disponible en el estado de cuenta.
+- El atributo **fecha_maxima_pago**: Fecha máxima para realizar el pago del estado de cuenta (año-mes-día).
+- El atributo **fecha_corte**: Fecha en que se realiza el corte de cuenta para el estado de cuenta (año-mes-día).
+
+
+### Tipo_Transacciones
+```
+create table Tipo_Transaccion(
+	Tipo_TransaccionID integer,
+	Nombre varchar(50),
+	constraint Tipo_TransaccionPK primary key (Tipo_TransaccionID)
+);
+
+```
+#### Ejemplo de la tabla
+| compañia_ID |cargo_de_compra| 
+| -----------  | ------------|
+| 1 |  Debito| 
+| 2 |  Crédito| 
+
+
   
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **compañia_id** es  la ****Llave Primaria**** y la identificacion de la compañia dentro del banco
+-  El atributo **nombre** es el nombre de la compañia de tarjetas
+-  El atributo **cargo_de_compra** es la comision que consigue la compañia de tarjetas por cada compra realizada por los clientes
