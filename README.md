@@ -867,3 +867,35 @@ Esta tabla se encarga de almacenar el historial de transacciones que realiza el 
 - El atributo **credito_disponible**: Monto de crédito disponible después de la transacción.
 - El atributo **descripcion**: Descripción de la transacción, en este caso, "Compra".
 - El atributo **transaccion_id**: Identificador único de la transacción asociada al historial. Este hace referencia al atributo **transaccion_id** de la tabla **Transaccion**
+
+
+
+### ExtraFinanciamiento
+```
+create table Extrafinanciamiento(
+	Extrafinanciamiento_ID integer,
+	Interes_anual double precision,
+	Interes_Mensual double precision,
+	Pago_Total double precision,
+	Pago_Mensual double precision,
+	Tarjeta_ID integer,
+	Constraint TarjetaEXTRAFK foreign key(Tarjeta_ID) references Tarjeta(Tarjeta_ID),
+	constraint ExtrafinanciamientoPK primary key(Extrafinanciamiento_ID)
+);
+```
+#### Ejemplo de la tabla
+
+| extrafinanciamiento_id | interes_anual | interes_mensual | pago_total | pago_mensual | tarjeta_id |
+|------------------------|---------------|-----------------|------------|--------------|------------|
+| 1                      | 1.5           | 0.1             | 100000     | 1000         | 1          |
+         
+
+
+Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usuario.
+
+- **extrafinanciamiento_id**: Identificación única para el extrafinanciamiento. Es la **Llave Primaria** de la tabla
+- **interes_anual**: Tasa de interés anual aplicada al extrafinanciamiento.
+- **interes_mensual**: Tasa de interés mensual aplicada al extrafinanciamiento.
+- **pago_total**: Monto total del extrafinanciamiento.
+- **pago_mensual**: Monto mensual a pagar para el extrafinanciamiento.
+- **tarjeta_id**: Identificación única de la tarjeta asociada al extrafinanciamiento. Es una **llave foranea** que hacer referencia al atributo **tarjeta_id** de la tabla **Tarjeta**
