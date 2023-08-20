@@ -569,3 +569,49 @@ Esta tabla se encarga de almacenar los diferentes telefonos.
 -  El atributo **Nombre_sucursal** es el nombre de la sucursal
 - El atributo **Direccion_id** es el ID de la dirección de resiencia conformada por el cliente y es una **Llave Foranea** que hace referencia a la tabla **Direccion**
   
+
+### Telefono Sucursal
+```
+create table TelefonoSucursal(
+	TelefonoID integer,
+	num_telefono nchar(8) unique not null,
+	Sucursal_ID integer not null, 
+	constraint TelefonoSucurPK primary key (TelefonoID),
+	constraint SucursalTelFK foreign key (Sucursal_ID) references Sucursal(Sucursal_ID)
+);
+```
+#### Ejemplo de la tabla
+| telefonoID | num_telefono |sucursal_id| 
+| ----------- | ----------- | ------------|
+| 1 |  22303030| 1|
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **telefono-id** es  la ****Llave Primaria**** y la identificacion del telefono de la sucursal
+-  El atributo **num_telefono** es el telefono de la sucursal
+- El atributo **Sucursal_id** es el ID de la sucursal y es una  **Llave Foranea** que hace referencia a la tabla **Sucursal**
+
+### Departamento Banco
+```
+create table Departamento_Banco(
+	Departamento_BancoID integer,
+	nombre varchar(50),
+	Descripcion varchar(100),
+	constraint DeparatamentoBancoPK primary key (Departamento_BancoID)
+);
+```
+#### Ejemplo de la tabla
+| Departamento_BancoID |nombre  |Descripcion| 
+| ----------- | ----------- | ------------|
+| 1 |  Solicitudes | Se encarga de realizar de ingresar las solicitudes de los clientes |
+|2| Autorizaciones| Se encarga de autorizar o denegar las solicitudes de los clientes |
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **Departamento_bancoid** es  la ****Llave Primaria**** y la identificacion del departamento  del banco
+-  El atributo **nombre** es el nombre del departamento
+ El atributo **Descripción** es el la descripcion del departamento
