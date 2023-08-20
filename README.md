@@ -763,15 +763,84 @@ create table Tipo_Transaccion(
 
 ```
 #### Ejemplo de la tabla
-| compañia_ID |cargo_de_compra| 
+| Tipo_transaccionID|nombre| 
 | -----------  | ------------|
-| 1 |  Debito| 
-| 2 |  Crédito| 
+| 1 |  Credito| 
+| 2 |  Debito| 
 
 
   
-Esta tabla se encarga de almacenar los diferentes telefonos.
+Esta tabla se encarga de almacenar los diferentes tipos de transacciones como lo es crédito y débito.
 
-- El atributo **compañia_id** es  la ****Llave Primaria**** y la identificacion de la compañia dentro del banco
--  El atributo **nombre** es el nombre de la compañia de tarjetas
--  El atributo **cargo_de_compra** es la comision que consigue la compañia de tarjetas por cada compra realizada por los clientes
+- El atributo **Tipo_Transacción** es la **Llave Primaria** de la tabla y el identificador de la transacción
+- El atributo **nombre** es el nombre del tipo de transacción
+
+### Transacciones
+```
+create table Transacciones(
+	TransaccionesID integer,
+	Tipo_TransaccionID integer,
+	cantidad_transaccion decimal(10,2),
+	fecha_transaccion date,
+	hora time,
+	establecimiento varchar(100),
+	Ciudad_ID bigint, 
+	Tarjeta_ID integer,
+	constraint TransaccionesPK primary key (TransaccionesID),
+	Constraint TarjetaTRFK foreign key(Tarjeta_ID) references Tarjeta(Tarjeta_ID),
+	constraint CuidadtrFK foreign key (Ciudad_ID) references Ciudad(Ciudad_ID),
+	constraint Tipo_TransaccionFK foreign key (Tipo_TransaccionID) references Tipo_Transaccion(Tipo_TransaccionID)
+);
+
+
+```
+#### Ejemplo de la tabla
+
+| transaccionesid | tipo_transaccionid | cantidad_transaccion | fecha_transaccion | hora      | establecimiento  | ciudad_id    | tarjeta_id |
+|-----------------|--------------------|----------------------|-------------------|-----------|------------------|--------------|------------|
+| 1               | 2                  | 150.00               | 2023-08-20        | 14:30:00  | Nike Factory     | 50408001041 | 1          |
+
+Esta tabla se encarga de almacenar las   transacciones que realiza el usuario.
+
+- El atributo **TransaccionesID**: es la **Llave Primaria** de la tabla y el identificador de la transacción
+- El atributo **Tipo_TransaccionID**: Identificador del tipo de transacción. es una **Llave Foranea** que hace referencia al atributo **tipo_transacciónid** de la tabla **Tipo_Transacción**
+- El atributo **cantidad_transaccion**: Cantidad de la transacción.
+- El atributo **fecha_transaccion**: Fecha de la transacción.
+- El atributo **hora**: Hora de la transacción.
+- El atributo **establecimiento**: Nombre del establecimiento donde se realizó la transacción.
+- El atributo **Ciudad_ID**: ID de la ciudad donde se realizó la transacción. Es una llave foranea que hace referencia al atributo **Ciudad_id** de la tabla **Ciudad**
+- El atributo **Tarjeta_ID**: ID de la tarjeta asociada a la transacción. Es una llave foranea que hace referencia al atributo **Tarjeta_ID** de la tabla **Tarjeta**
+
+### Historial Transacciones
+```
+create table Historial_Transacciones(
+	Historial_TransaccionesID integer,
+	debito_Compra decimal(10,2),
+	Credito_Compra decimal(10,2),
+	limite_integrado decimal(10,2) not null,
+	credito_disponible decimal(10,2) not null,
+	Descripcion varchar(100),
+	Transaccion_ID integer not null,
+	constraint Historial_TransaccionesPK primary key (Historial_TransaccionesID),
+	constraint Transaccionfk foreign key (Transaccion_ID) REFERENCES Transacciones(TransaccionesID)
+);
+
+
+```
+#### Ejemplo de la tabla
+
+|
+| historial_transaccionesid | debito_compra | credito_compra | limite_integrado | credito_disponible | descripcion | transaccion_id |
+|---------------------------|---------------|----------------|------------------|--------------------|-------------|----------------|
+| 1                         | 10000.00      | 0.00           | 10000000.00      | 10000.00           | "Compra"    | 1              |
+
+
+Esta tabla se encarga de almacenar el historial de transacciones que realiza el usuario.
+
+- El atributo **historial_transaccionesid**: Es la **Llave Primaria** y el identificador del Historial
+- El atributo **debito_compra**: Monto de compra debitado en la transacción.
+- El atributo **credito_compra**: Monto de compra a crédito en la transacción.
+- El atributo **limite_integrado**: Límite integrado para la transacción.
+- El atributo **credito_disponible**: Monto de crédito disponible después de la transacción.
+- El atributo **descripcion**: Descripción de la transacción, en este caso, "Compra".
+- El atributo **transaccion_id**: Identificador único de la transacción asociada al historial. Este hace referencia al atributo **transaccion_id** de la tabla **Transaccion**
