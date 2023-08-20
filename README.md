@@ -727,6 +727,29 @@ create table Tarjeta(
 	constraint SucursalTarjetaFK foreign key(Sucursal_ID) references Sucursal(Sucursal_ID)
 );
 ```
+
+#### Ejemplo de tabla
+| Tarjeta_ID | PIN   | CVC | Numero_Tarjeta       | Fecha_Emision | Fecha_Vencimiento | Costo_Membresia | Interes_anual | Interes_Mensual | compania_ID | cliente_ID | sucursal_ID | cuenta_ID |
+|------------|-------|-----|----------------------|--------------|-------------------|----------------|---------------|----------------|-------------|------------|-------------|-----------|
+| 1          | "1234" | "567" | "1234567890123456" | 2022-03-15   | 2024-03-15        | 150.00         | 18.00         | 1.5            | 1           | 1          | 1           | 1         |
+
+
+- El atributo **estado_cuenta_id** es la identificación única del estado de cuenta. Es utilizado como una **Llave Primaria** en la tabla.
+- El atributo **num_cuenta** representa el número de cuenta asociado con el estado de cuenta.
+- El atributo **cliente_id** corresponde al ID del cliente que está relacionado con el estado de cuenta. Es una **Llave Foranea** que hace referencia al atributo **cliente_Id** en la tabla **Cliente**.
+- El atributo **cuenta_id** indica el ID de la cuenta asociada con el estado de cuenta. Es una **Llave Foranea** que hace referencia al atributo **cuenta_Id** en la tabla **Cuenta**.
+- El atributo **pago_minimo** es el monto mínimo que se debe pagar en el estado de cuenta.
+- El atributo **pago_total** es el monto total adeudado en el estado de cuenta.
+- El atributo **plazo_meses** representa el número de meses que se considera para el plazo del estado de cuenta.
+- El atributo **puntos_totales** denota la cantidad total de puntos asociados con el estado de cuenta.
+- El atributo **puntos_obtenidos** indica la cantidad de puntos obtenidos en el estado de cuenta.
+- El atributo **limite_credito** representa el límite de crédito asignado al estado de cuenta.
+- El atributo **credito_disponible** es el monto de crédito que aún está disponible en el estado de cuenta.
+- El atributo **fecha_maxima_pago** es la fecha máxima para realizar el pago del estado de cuenta, en el formato año-mes-día.
+- El atributo **fecha_corte** es la fecha en la que se realiza el corte de cuenta para el estado de cuenta, en el formato año-mes-día.
+
+### Estado de Cuenta
+
 #### Ejemplo de la tabla
 
 | estado_cuenta_id | num_cuenta | cliente_id | cuenta_id | pago_minimo | pago_total | plazo_meses | puntos_totales | puntos_obtenidos | limite_credito | credito_disponible | fecha_maxima_pago | fecha_corte   |
