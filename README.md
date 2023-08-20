@@ -74,7 +74,29 @@ Algunas características clave de PostgreSQL incluyen:
 - Replicación y Alta Disponibilidad: PostgreSQL ofrece opciones para replicar y distribuir datos en múltiples servidores para lograr alta disponibilidad y escalabilidad.
 
 - Soporte para Transacciones: PostgreSQL es un sistema de base de datos transaccional que garantiza la integridad de los datos mediante el uso de transacciones ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad).
+### DRAW.IO
+---
+![Draw.io](https://drawio-app.com/wp-content/uploads/2022/10/drawio_campaign_Q4_2022_I_love_UX_diagrams_blog_banner_EN.png)
 
+Draw.io es una aplicación en línea de diagramación y creación de gráficos que permite a los usuarios diseñar diagramas, gráficos y otros tipos de representaciones visuales. La herramienta es ampliamente utilizada para crear diagramas de flujo, diagramas de proceso, organigramas, mapas mentales, diagramas UML y muchos otros tipos de gráficos.
+
+Características clave de Draw.io:
+
+- Diagramación Versátil: Draw.io ofrece una variedad de herramientas y elementos para crear una amplia gama de diagramas y gráficos, desde representaciones simples hasta diagramas técnicos más complejos.
+
+- Interfaz Amigable: La interfaz de Draw.io es intuitiva y fácil de usar, con una amplia gama de formas, iconos y conectores que se pueden arrastrar y soltar en el lienzo de trabajo.
+
+- Personalización: Los elementos en Draw.io son altamente personalizables. Los usuarios pueden cambiar colores, tamaños, estilos de línea y otras propiedades para adaptar los diagramas a sus necesidades.
+
+- Colaboración: Draw.io permite la colaboración en tiempo real, lo que significa que varias personas pueden trabajar en un mismo diagrama simultáneamente, lo que es útil para equipos distribuidos o colaborativos.
+
+- Integración con Plataformas: La herramienta es compatible con la integración en plataformas populares como Google Drive, OneDrive y GitHub, lo que facilita la organización y el almacenamiento de los diagramas.
+
+- Exportación: Los diagramas creados en Draw.io pueden exportarse en varios formatos, como PNG, SVG, PDF y otros, lo que permite compartir o incorporar los gráficos en otros documentos.
+
+- Uso Gratuito y de Código Abierto: Draw.io está disponible de forma gratuita y su código fuente es de código abierto. Esto significa que cualquiera puede utilizar la herramienta sin costo y también pueden alojar su propia instancia si lo desean.
+
+- Plantillas Predefinidas: Draw.io ofrece una variedad de plantillas predefinidas para ayudar a los usuarios a comenzar rápidamente con diferentes tipos de diagramas.
 ### Windows Server 2019
 ---
 ![Windows Server](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Windows_Server_2019_logo.svg/2560px-Windows_Server_2019_logo.svg.png)
@@ -120,7 +142,7 @@ Algunas características clave de Windows Server incluyen:
 |1| Estados Unidos de América |
 
 Esta tabla se encarga de Registrar los paises en los que se encuentra el banco donde:
-- El atributo **pais** es la Llave Primaria y sus registros se basan en los código de los paises ejemplo:
+- El atributo **pais** es la **Llave Primaria** y sus registros se basan en los código de los paises ejemplo:
  > Honduras : 504
 
  > El Salvador : 503
@@ -148,7 +170,7 @@ create table Departamento (
 
 
 Esta tabla se encarga de Registrar los Departamentos  en los que se encuentra el banco donde:
-- El atributo **departamento_id** es la Llave Primaria y sus registros se basan en los código de los paises mas la posición en el listado de orden alfabético de sus respectivos paises ejemplo:
+- El atributo **departamento_id** es la **Llave Primaria** y sus registros se basan en los código de los paises mas la posición en el listado de orden alfabético de sus respectivos paises ejemplo:
  > Francisco Morazán : 50408 ya que 504 es el código del país y 08 su número en el listado
 
  > Ahuchapán : 50301  ya que 503 es el código del país y 01 su número en el listado
@@ -165,7 +187,7 @@ Esta tabla se encarga de Registrar los Departamentos  en los que se encuentra el
    - Occidente
    - Oriente
 
-- El atributo **pais_id** es una Llave foranea que hace referencia a **pais** de la tabla **Pais** y sus registros se basan en los código de los paises ejemplo:
+- El atributo **pais_id** es una **Llave foranea** que hace referencia a **pais** de la tabla **Pais** y sus registros se basan en los código de los paises ejemplo:
  > Honduras : 504
 
  > El Salvador : 503
@@ -194,7 +216,7 @@ CREATE TABLE municipio
 
 
 Esta tabla se encarga de Registrar los Departamentos  en los que se encuentra el banco donde:
-- El atributo **municipio_id** es la Llave Primaria y sus registros se basan en los código de los departamentos mas la posición en orden alfabético en el listado  de los municipios sus respectivos departamentos ejemplo:
+- El atributo **municipio_id** es la **Llave Primaria** y sus registros se basan en los código de los departamentos mas la posición en orden alfabético en el listado  de los municipios sus respectivos departamentos ejemplo:
   
  > Distrito Central : 50408001 ya que 50408 es el código del departamento  y 001  es el número de lista del municipio en orden alfabético
 
@@ -208,7 +230,7 @@ Esta tabla se encarga de Registrar los Departamentos  en los que se encuentra el
 
 
 
-- El atributo **departamento_id** es una Llave foranea que hace referencia a **departamento_id** de la tabla **Departamento** y sus registros se basan en los código de los paises mas el número de lista del departamento en orden alfabético ejemplo:
+- El atributo **departamento_id** es una **Llave foranea** que hace referencia a **departamento_id** de la tabla **Departamento** y sus registros se basan en los código de los paises mas el número de lista del departamento en orden alfabético ejemplo:
  > Francisco Morazán : 50408
 
  > El Ahuchapán : 50301
@@ -232,7 +254,7 @@ create table Ciudad (
 
 
 Esta tabla se encarga de Registrar las ciudades o pueblos en los que se encuentra el banco donde:
-- El atributo **ciudad_id** es la Llave Primaria y sus registros se basan en la posición en orden alfabético en el listado  de los pueblos y ciudades de sus respectivos municipios ejemplo:
+- El atributo **ciudad_id** es la **Llave Primaria** y sus registros se basan en la posición en orden alfabético en el listado  de los pueblos y ciudades de sus respectivos municipios ejemplo:
   
  > Tegucigalpa: 50408001041 ya que 50408001 es el código del municipio  y 041  es el número de lista de Tegucigalpa en orden alfabético
 
@@ -246,7 +268,7 @@ Esta tabla se encarga de Registrar las ciudades o pueblos en los que se encuentr
 
 
 
-- El atributo **Municipio_id** es una Llave foranea que hace referencia a **Municipio_id** de la tabla **Municipio** y sus registros se basan en los código de los paises mas el número de lista del departamento  mas la lista del municipio en orden alfabético ejemplo:
+- El atributo **Municipio_id** es una **Llave foranea** que hace referencia a **Municipio_id** de la tabla **Municipio** y sus registros se basan en los código de los paises mas el número de lista del departamento  mas la lista del municipio en orden alfabético ejemplo:
  > Distrito Central: 50408001
 
 
@@ -288,21 +310,21 @@ CREATE TABLE Direccion
 
 Esta tabla se encarga de Registrar La dirección que provee un usuario para su posterior uso.
 
-- El atributo **direccion_id** es la Llave Primaria y sus registros se generan de manera automatica y secuencial 
+- El atributo **direccion_id** es la **Llave Primaria** y sus registros se generan de manera automatica y secuencial 
   
-- El atributo **Municipio_id** es una Llave foranea que hace referencia a **Municipio_id** de la tabla **Municipio** y sus registros se basan en los código de los paises mas el número de lista del departamento  mas la lista del municipio en orden alfabético ejemplo:
+- El atributo **Municipio_id** es una **Llave foranea** que hace referencia a **Municipio_id** de la tabla **Municipio** y sus registros se basan en los código de los paises mas el número de lista del departamento  mas la lista del municipio en orden alfabético ejemplo:
  > Distrito Central: 50408001
 
-- El atributo **departamento_id** es una Llave foranea que hace referencia a **departamento_id** de la tabla **Departamento** y sus registros se basan en los código de los paises mas el número de lista del departamento en orden alfabético ejemplo:
+- El atributo **departamento_id** es una **Llave foranea** que hace referencia a **departamento_id** de la tabla **Departamento** y sus registros se basan en los código de los paises mas el número de lista del departamento en orden alfabético ejemplo:
  > Francisco Morazán : 50408
 
  > El Ahuchapán : 50301
 
- - El atributo **ciudad_id** es una Llave foranea que hace referencia a **Ciudad_id** de la tabla **Ciudad**  se basan en la posición en orden alfabético en el listado  de los pueblos y ciudades de sus respectivos municipios ejemplo:
+ - El atributo **ciudad_id** es una **Llave foranea** que hace referencia a **Ciudad_id** de la tabla **Ciudad**  se basan en la posición en orden alfabético en el listado  de los pueblos y ciudades de sus respectivos municipios ejemplo:
   
  > Tegucigalpa: 50408001041 ya que 50408001 es el código del municipio  y 041  es el número de lista de Tegucigalpa en orden alfabético
 
-- El atributo **pais_id** es una Llave foranea que hace referencia a **pais** de la tabla **Pais** y sus registros se basan en los código de los paises ejemplo:
+- El atributo **pais_id** es una **Llave foranea** que hace referencia a **pais** de la tabla **Pais** y sus registros se basan en los código de los paises ejemplo:
  > Honduras : 504
 
  > El Salvador : 503
@@ -327,7 +349,7 @@ create table Tipo_persona (
 
 Esta tabla se encarga de almacenar los dos tipos de personas que existen frente a la Oficina del Servicio de Administración de Rentas (SAR)
 
-- El atributo **tipo_personaid** es la **llave primaria** y el número de identificacion del tipo de persona
+- El atributo **tipo_personaid** es la ****Llave Primaria**** y el número de identificacion del tipo de persona
 - - El atributo **descripcion** es la descripcion del tipo de persona
 
 ### Tipo de DocumentoID
@@ -347,7 +369,7 @@ create table Tipo_Documento(
 
 Esta tabla se encarga de almacenar los diferentes tipos de identificación que admite el banco.
 
-- El atributo **tipo_documentoid** es la **llave primaria** y el tipo la identificacion para el tipo de documento
+- El atributo **tipo_documentoid** es la ****Llave Primaria**** y el tipo la identificacion para el tipo de documento
 - El atributo **nombre** es el nombre del tipo de documento
 
 ### Ocupación
@@ -369,19 +391,26 @@ create table Tipo_Documento(
   
 Esta tabla se encarga de almacenar los diferentes tipos de ocupaciones de los clientes en el banco.
 
-- El atributo **ocupacion-id** es  la **llave primaria** y la identificacion para el tipo las ocupaciones regirstradas por el banco
+- El atributo **ocupacion-id** es  la ****Llave Primaria**** y la identificacion para el tipo las ocupaciones regirstradas por el banco
 -  El atributo **titulo** es el nombre de la ocupacion
 -  
 ### Datos Laborales
 ```
-create table Tipo_Documento(
-	Tipo_DocumentoID integer,
-	nombre varchar(50) not null,
-	constraint Tipo_DocumentoPK primary key (Tipo_DocumentoID)
+CREATE TABLE datos_laborales
+(
+    ingreso_mensual numeric(10,2),
+    ocupacion_id integer NOT NULL,
+    "Fecha_ingreso" date,
+    cargo character varying(50) COLLATE pg_catalog."default",
+    datos_laborales_id bigint NOT NULL DEFAULT nextval('datos_laborales_datos_laborales_id_seq'::regclass),
+    CONSTRAINT "Datos_LaboralesPK" PRIMARY KEY (datos_laborales_id),
+    CONSTRAINT ocupacionfk FOREIGN KEY (ocupacion_id)
+        REFERENCES public.ocupacion (ocupacion_id) MATCH SIMPLE
+        
 );
 ```
 #### Ejemplo de la tabla
-| datos_laborales_id|Ingreso_mensual | ocupacion_id | tiempo_laborando | cargo | 
+| datos_laborales_id|Ingreso_mensual | ocupacion_id | fecha_ingreso | cargo | 
 | ----------- | ----------- | ----------- | ----------- | -------------|
 | 1 | 15000.00 | 1 | 2023-05-05 | Ingeniero Junior|
 | 2 | 17000.00| 2 | 2023-01-01 | Abogado de Aduana |
@@ -389,4 +418,42 @@ create table Tipo_Documento(
 
 Esta tabla se encarga de almacenar los datos laborales de los solicitantes a la tarjeta de crédito
 
-- El atributo **datos_laborales_id** es la Llave Primaria y sus registros se generan de manera automatica y secuencial 
+- El atributo **datos_laborales_id** es la **Llave Primaria** y sus registros se generan de manera automatica y secuencial 
+- El atributo **Ingreso_Mensual** es el la cantidad de promedio que percibe el solicitante/cliente
+- El atributo **ocupacion_id** es el ID de la ocupacion
+- El atributo **Fecha_ingreso** es la fecha cuando empezo a laborar
+  >En este caso funciona de la siguiente manera: año/dia/mes
+- El atributo **cargo** es el nombre del cargo que ostenta
+
+### Persona
+```
+create table Persona(
+	Persona_ID varchar(20),
+	P_Nombre varchar(30) not null,
+	S_Nombre varchar(30),
+	P_Apellido varchar(30) not null,
+	S_Apellido varchar(30),
+	Correo Varchar(50),
+	Fecha_Nacimiento date,
+	Direccion_ID integer not null, 
+	Tipo_personaID integer not null,
+	Tipo_DocumentoID integer not null unique,
+	
+	constraint PersonaPK primary key (Persona_ID),
+	constraint Tipo_DocumentoFK foreign key(Tipo_DocumentoID) references Tipo_Documento(Tipo_DocumentoID),
+	constraint DireccionPFK foreign key(Direccion_ID) references Direccion(Direccion_ID),
+	constraint Tipo_personaIDPFK foreign key(Tipo_personaID) references Tipo_persona(Tipo_personaID)
+);
+```
+#### Ejemplo de la tabla
+|Persona_ID | P_nombre| S_nombre| P_apellido| S_apellido| correo| fecga_nacimiento|Direccion_id|Tipo_personaID|Tipo_DocumentoID
+|----------|---------|---------|------|-------|-----|----------|---------|---|---|
+|0505245009012| Rodolfo| martel|maradiaga|armijo|rodolfo@honduras.com|2023-12-03|1|1|1|
+
+Esta tabla se encarga de almacenar los datos personales de los solicitantes a la tarjeta de crédito
+
+- El atributo **Persona_ID** es la **Llave Primaria** y sus registros se generan de manera manual a traves del número de identificación de la persona por ejemplo:
+- > Honduras :
+  - > Numero de Identidad 0701207701011
+  - > RTN : 0701207701011
+  - > pasaporte: G010101
