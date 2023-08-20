@@ -1,0 +1,32 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Pages_Quejas
+@{
+    ViewData["Title"] = "Quejas";
+}
+<div class="container mt-5">
+    <div class="mb-4">
+        <h1 class="mt-4 mb-4">Lista de Quejas</h1>
+        <button class="btn btn-success">Agregar</button>
+        <button class="btn btn-danger">Eliminar</button>
+        <button class="btn btn-primary">Actualizar</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Queja</th>
+                <th>Descripción de la Queja</th>
+                <th>Fecha de la Queja</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-sm-2">
+                    <a class="btn btn-secondary" asp-page="./Detalle_Queja"> Ver detalles queja</a>
+                </td>
+            </tr>
+            <!-- Aquí puedes generar dinámicamente las filas de la tabla con datos de la base de datos -->
+            <!-- Utiliza un lenguaje de programación en el backend para obtener y procesar los datos -->
+        </tbody>
+    </table>
+
+</div>
