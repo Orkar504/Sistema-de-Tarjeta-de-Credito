@@ -30,6 +30,7 @@ builder.Services.AddAuthentication(galleta).AddCookie(galleta, options =>
     options.Cookie.Name = galleta;
     options.LoginPath = LoginPath; //Se utiliza la constante LoginPath por si requiere hacer cambios no se deba realizar en todos lados
     options.AccessDeniedPath = accessDenied;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5); // Si no se detecta actividad por n minutos se cierra la sesion
 });
 
 builder.Services.AddAuthorization(options =>
