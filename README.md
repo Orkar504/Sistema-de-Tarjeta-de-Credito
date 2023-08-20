@@ -122,7 +122,7 @@ Algunas características clave de Windows Server incluyen:
 - Integración con el Ecosistema de Microsoft: Windows Server está diseñado para trabajar en conjunto con otras soluciones de Microsoft, como Active Directory para la administración de usuarios y grupos, Microsoft Exchange para la gestión de correo electrónico y Microsoft Azure para la nube.
 
 ## La Base de Datos y sus Tablas
-
+## Nombre del servidor de Postgresql: TarjetaDeCredito
 ### Pais
 ```
  CREATE TABLE IF NOT EXISTS public.pais
@@ -464,4 +464,108 @@ Esta tabla se encarga de almacenar los datos personales de los solicitantes a la
 -  El atributo **Tipo_personaID** es el ID del tipo de persona que es el cliente, si representa a una entidad jurídica como lo es la empresa o una ONG o una entidad natural como lo es una persona y es una **Llave Foranea** que hace referencia a la Tabla **Tipo de Persona**
 - El atributo **Tipo_DocumentoID** es el ID del tipo de documento que utiliza la persona ya sea Cedula de Identidad, pasaporte etc... y es una **Llave Foranea** que hace referencia a la Tabla **Tipo DocumentoID**
   
+### Telefono
+```
+
+CREATE TABLE telefono
+(
+    num_telefono character(8) COLLATE pg_catalog."default" NOT NULL,
+    persona_id character varying COLLATE pg_catalog."default" NOT NULL,
+    "TelefonoID" bigint NOT NULL DEFAULT nextval('"telefono_TelefonoID_seq"'::regclass),
+      pais_id integer NOT NULL,
+    CONSTRAINT "TelefonoPK" PRIMARY KEY ("TelefonoID"),
+    CONSTRAINT telefono_num_telefono_key UNIQUE (num_telefono),
+    CONSTRAINT personatelfk FOREIGN KEY (persona_id)
+        REFERENCES public.persona (persona_id) MATCH SIMPLE,
+    CONSTRAINT paisfk FOREIGN KEY (pais_id)
+    REFERENCES public.pais (pais_id) MATCH SIMPLE
+)
+
+
+```
+#### Ejemplo de la tabla
+| telefono_id | num_telefono  | persona_id|pais_id|
+| ----------- | ----------- | ------|------|
+| 1 |  9888 0101 |  1| 504 |
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **telefono-id** es  la ****Llave Primaria**** y la identificacion para del telefono, se genera automáticamente al ingresar un nuevo teléfono
+-  El atributo **num_telefono** es el numero del telefono
+- El atributo **persona_id** es el ID de la  persona al que le pertence el telefono y es una **Llave Foranea** que hace referencia a la tabla **Persona**
+- El atributo **pais_id** es el ID del  pais del telefono y es una **Llave Foranea** que hace referencia a la tabla **Pais**
+
+### Cliente
+```
+create table Cliente (
+	Cliente_ID integer,
+	Persona_ID varchar,
+	Datos_Laborales_ID integer not null,
+	constraint ClientePK primary key (Cliente_ID),
+	constraint Datos_LaboralesFK foreign key(Datos_Laborales_ID) references Datos_Laborales(Datos_Laborales_ID),
+	constraint PersonaCliFK foreign key(Persona_ID) references Persona(Persona_ID)
+);
+```
+#### Ejemplo de la tabla
+| Cliente_ID | PersonaID | Datos_LaboralesID|
+| ----------- | ----------- | ---------|
+| 1 |  0505245009012 |  1| 
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **cliente-id** es  la ****Llave Primaria**** y la identificacion para el cliente, se genera automáticamente al ingresar un nuevo cliente
+- El atributo **persona_id** es el ID de la  persona al que le pertence el telefono y es una **Llave Foranea** que hace referencia a la tabla **Persona**
+- El atributo **Datos_Laboralesid** es el ID de los datos laborales de la persona y es una **Llave Foranea** que hace referencia a la tabla **Datos Laborales**
+
+
+### Puesto
+```
+create table Puesto(
+	Puesto_ID integer,
+	Nombre_Puesto varchar(50),
+	constraint PuestoPK primary key (Puesto_ID)
+);
+
+```
+#### Ejemplo de la tabla
+| Puesto_ID | Nombre_Puesto | 
+| ----------- | ----------- | 
+| 1 |  Mantenimiento|
+|2| Gerente|
+|3|  Empleado Solicitudes|
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **puesto-id** es  la ****Llave Primaria**** y la identificacion para el puesto
+-  El atributo **Nombre_Puesto** es el nombre del puesto
+
+
+### Sucursal
+```
+create table Sucursal(
+	Sucursal_ID integer,
+	Direccion_ID integer,
+	Nombre_Sucursal varchar(50),
+	constraint SucursalPK primary key (Sucursal_ID),
+	constraint DireccionSucurFK foreign key(Direccion_ID) references Direccion(Direccion_ID)
+);
+```
+#### Ejemplo de la tabla
+| sucursal_ID | direccion_id |nombre_sucursal| 
+| ----------- | ----------- | ------------|
+| 1 |  2| Blue Label|
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **sucursal-id** es  la ****Llave Primaria**** y la identificacion del la sucursal
+-  El atributo **Nombre_sucursal** es el nombre de la sucursal
+- El atributo **Direccion_id** es el ID de la dirección de resiencia conformada por el cliente y es una **Llave Foranea** que hace referencia a la tabla **Direccion**
   
