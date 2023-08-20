@@ -437,7 +437,7 @@ create table Persona(
 	Fecha_Nacimiento date,
 	Direccion_ID integer not null, 
 	Tipo_personaID integer not null,
-	Tipo_DocumentoID integer not null unique,
+	Tipo_DocumentoID integer not null ,
 	
 	constraint PersonaPK primary key (Persona_ID),
 	constraint Tipo_DocumentoFK foreign key(Tipo_DocumentoID) references Tipo_Documento(Tipo_DocumentoID),
@@ -599,7 +599,7 @@ create table Departamento_Banco(
 	Departamento_BancoID integer,
 	nombre varchar(50),
 	Descripcion varchar(100),
-	constraint DeparatamentoBancoPK primary key (Departamento_BancoID)
+	constraint DepararatamentoBancoPK primary key (Departamento_BancoID)
 );
 ```
 #### Ejemplo de la tabla
@@ -615,3 +615,143 @@ Esta tabla se encarga de almacenar los diferentes telefonos.
 - El atributo **Departamento_bancoid** es  la ****Llave Primaria**** y la identificacion del departamento  del banco
 -  El atributo **nombre** es el nombre del departamento
  El atributo **Descripción** es el la descripcion del departamento
+
+### Datos Empleado
+```
+CREATE TABLE datos_laborales
+(
+    ingreso_mensual numeric(10,2),
+    ocupacion_id integer NOT NULL,
+    "Fecha_ingreso" date,
+    cargo character varying(50) COLLATE pg_catalog."default",
+    datos_laborales_id bigint NOT NULL DEFAULT nextval('datos_laborales_datos_laborales_id_seq'::regclass),
+    CONSTRAINT "Datos_LaboralesPK" PRIMARY KEY (datos_laborales_id),
+    CONSTRAINT ocupacionfk FOREIGN KEY (ocupacion_id)
+        REFERENCES public.ocupacion (ocupacion_id) MATCH SIMPLE
+        
+);
+```
+#### Ejemplo de la tabla
+| empleado_id| puesto_id | departamento_bancoid | sucursal_id | persona_id | Correo_corporativo| 
+| ----------- | ----------- | ----------- | ----------- | -------------|----|
+| 1 | 1| 1 | 1 | 0505245009011|adolfo@banco.com|
+
+Esta tabla se encarga de almacenar los datos de los empleados que laboran en la institución 
+
+- El atributo **Empleado_id** es la **Llave Primaria** que se le asigna a cada empleado 
+- El atributo **puesto-id** es  una **Llave Foranea** y la identificacion para el puesto haciendo referencia al atributo **puesto_id** de la tabal **puesto**
+- El atributo **Departamento_bancoid** es una ****Llave Foranea**** y la identificacion del departamento  del banco haciendo referencia al atributo **departamento_id** de la tabla **Departamento**
+- El atributo **Sucursal_id** es el ID de la sucursal y es una  **Llave Foranea** que hace referencia a la tabla **Sucursal**
+- El atributo **Ingreso_Mensual** es el la cantidad de promedio que percibe el solicitante/cliente
+- El atributo **persona_id** es el ID de la  persona al que le pertence el telefono y es una **Llave Foranea** que hace referencia a la tabla **Persona**
+
+- El atributo **Correo_corporativo** es el corre del empleado que le asigna la empresa
+
+
+
+### Compañia Tarjeta
+```
+CREATE TABLE Compania_Tarjeta(
+	Compania_ID integer,
+	Nombre varchar(100) not null,
+	Cargo_de_Compra decimal(10,2) not null,
+	constraint CompaniaPK primary key (Compania_ID)
+);
+
+```
+#### Ejemplo de la tabla
+| compañia_ID | nombre |cargo_de_compra| 
+| ----------- | ----------- | ------------|
+| 1 |  visa| 0.01|
+| 2 |  mastercard| 0.015|
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **compañia_id** es  la ****Llave Primaria**** y la identificacion de la compañia dentro del banco
+-  El atributo **nombre** es el nombre de la compañia de tarjetas
+-  El atributo **cargo_de_compra** es la comision que consigue la compañia de tarjetas por cada compra realizada por los clientes
+
+
+
+### Cuenta
+```
+Create table Cuenta(
+	Cuenta_ID integer, 
+	num_Cuenta char(10) not null unique,
+	saldo Decimal (10,2) not null,
+	Cliente_ID integer not null, 
+	constraint CuentaPK primary key (Cuenta_ID),
+	constraint ClienteFK foreign key (Cliente_ID) references Cliente(Cliente_ID)
+);
+
+
+```
+#### Ejemplo de la tabla
+| Cuenta_ID | num_Cuenta |saldo|Cliente_ID |
+| ----------- | ----------- | ------------|--|
+| 1 |  1010| 10000|1|
+
+
+
+  
+Esta tabla se encarga de almacenar los diferentes telefonos.
+
+- El atributo **cuenta_id** es  la ****Llave Primaria**** y la identificacion de la cuenta en el sistea
+-  El atributo **num_cuenta** es el numero asignado a la cuenta
+-  El atributo **saldo** es la cantidad de dinero que adeuda el cliente
+-  El atributo **cliente-id** es una **llave Foranea** y la identificacion para el cliente, hacer referencia al atributo **cliente_id** en la tabla **cliente**
+  
+
+  ### Tarjeta
+```
+create table Tarjeta(
+	Tarjeta_ID integer,
+	PIN char(4) not null,
+	CVC char(3) not null,
+	Numero_Tarjeta char(16) not null unique,
+	Fecha_Emision date,
+	Fecha_Vencimiento date,
+	Costo_Membresia double precision not null,
+	Interes_anual double precision not null,
+	Interes_Mensual double precision not null,
+	compania_ID integer not null,
+	Cliente_ID integer not null,
+	Sucursal_ID INTEGER not null, 
+	CuentaID integer not null,
+	constraint TarjetaPK primary key (Tarjeta_ID),
+	constraint CuentaFK foreign key (CuentaID) references Cuenta(Cuenta_ID),
+	constraint companiaFK foreign key(compania_ID) references Compania_Tarjeta(compania_ID),
+	Constraint ClienteFK foreign key(Cliente_ID) references Cliente(Cliente_ID),
+	constraint SucursalTarjetaFK foreign key(Sucursal_ID) references Sucursal(Sucursal_ID)
+);
+```
+#### Ejemplo de la tabla
+
+
+
+| Tarjeta_ID | PIN   | CVC  | Numero_Tarjeta    | Fecha_Emision | Fecha_Vencimiento | Costo_Membresia | Interes_anual | Interes_Mensual | compania_ID | Cliente_ID | Sucursal_ID | CuentaID |
+|------------|-------|------|-------------------|---------------|-------------------|-----------------|---------------|-----------------|-------------|------------|-------------|----------|
+| 1          | 1234  | 567  | 1234567890123456 | 2022-03-15    | 2024-03-15        | 150.00          | 18.00         | 1.50            | 1        | 1     | 1        | 1   |
+
+
+
+Esta tabla se encarga de almacenar los datos de las tarjetas de los cuenta habientes de tarjeta de crédito
+
+- El atributo **Tarjeta_id** es  la **Llave Primaria** y es la identificacion de la tarjeta en el sistema
+- El atributo **PIN** es el pin de la tarjeta
+- El atributo **CVC** es el CVC de la tarjeta
+- El atributo **Numero_Tarjeta** es el numero de la tarjeta
+- El atributo **fecha_Emision** es el fecha de emision de la tarjeta
+ >En este caso funciona de la siguiente manera: año/dia/mes
+- El atributo **fecha_Vencimiento** es el fecha de vencimiento de la tarjeta
+ >En este caso funciona de la siguiente manera: año/dia/mes
+- El atributo **Interes_anual** es el interes anual de la tarjeta
+- El atributo **Interes_Mensual** es el interes mensual de la tarjeta
+- El atributo **comania_id** es el id de la compania que emite  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **compania_Id** de la tabla **compania_tarjeta**
+-  El atributo **cliente_id** es el id del cliente  que posee la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **cliente_Id** de la tabla **Cliente**
+-  El atributo **sucursal_id** es el id de la sucursal  que emitio  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **sucursal_Id** de la tabla **Sucursal**
+-  El atributo **cuenta_id** es el id de la cuenta a la que esta ligada  la tarjeta. Es una **Llave Foranea** que hace referencia al atributo **cuenta_Id** de la tabla **Cuenta**
+-  
+  
