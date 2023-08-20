@@ -1,58 +1,69 @@
 ﻿@page
 @model Sistema_de_Tarjeta_de_Credito.Pages.Cuentas.CuentaModel
 @{
+    ViewData["Title"] = "Cuenta";
 }
+<html>
 
 
-<div clase="container-fluid">
-    <h4>Cuenta</h4>
-    <hr />
-    <div>
-        <a class="btn btn-primary" asp-page="./Cuenta">crear</a>
-        <a class="btn btn-primary" asp-page="./Cuenta">Modificar</a>
-        <a class="btn btn-primary" asp-page="./Cuenta">Eliminar</a>
+
+<div class="card border-dark">
+    <div class="m-4">
+        <body>
+
+            <h4>Cuenta</h4>
+            <hr />
+            <div>
+                <a class="btn btn-primary" asp-page="./Cuenta">Crear cuenta</a> |
+                <a class="btn btn-dark" onclick="history.back()" >Atrás</a>
+            </div>
+
+
+            <!-- Esta tabla solo es un ejemplo-->
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th class="col-sm-2">Número de cuenta</th>
+                        <th class="col-sm-2">Saldo</th>
+                        <th class="col-sm-2">Nombre del cliente</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var num in Model.aaa)
+                    {
+                        <tr>
+                            <td class="col-sm-2">
+                                43827398
+                            </td>
+                            <td class="col-sm-2">
+                                1,000.00
+                            </td>
+                            <td class="col-sm-2">
+                                cliente 1
+                            </td>
+                            <td class="col-sm-4">
+                                <a class="btn btn-primary btn-sm" asp-page="./EstadoCuenta"> Ver estado de cuenta</a> |
+                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Modificar</a> | 
+                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </body>
+
     </div>
-
-
-    <!-- Esta tabla solo es un ejemplo-->
-    <table class="table">
-
-        <thead>
-            <tr>
-                <th class="col-sm-2">numero cuenta</th>
-                <th class="col-sm-2">Saldo</th>
-                <th class="col-sm-2">Cliente</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            @foreach (var num in Model.aaa)
-            {
-                <tr>
-                    <td class="col-sm-2">
-                        43827398
-                    </td>
-                    <td class="col-sm-2">
-                        1,000.00
-                    </td>
-                    <td class="col-sm-2">
-                        cliente 1
-                    </td>
-                    <td class="col-sm-2">
-                        <a class="btn btn-primary" asp-page="./EstadoCuenta"> Ver estado de cuenta</a>
-                    </td>
-                </tr>
-            }
-
-        </tbody>
-    </table>
-
-
-
-
-
-
 </div>
+
+
+
+
+
+
+</html>

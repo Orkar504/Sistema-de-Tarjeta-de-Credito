@@ -1,0 +1,56 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.PagoCreditoModel
+@{
+}
+
+
+
+<html>
+    <body>
+    <div class="card border-dark ">
+            <div class="m-3">
+                <h3>Pago credito</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th >Tarjeta de credito</th>
+                            <th>Cliente ID</th>
+                            <th >Fecha </th>
+                            <th >Hora </th>
+                            <th >Pago contado </th>
+                            <th >Pago mínimo </th>
+                            <th >Fecha máxima de pago </th>
+                            <th >Interes </th>
+                            <th>Mora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <!-- todo el codigo de trabajo-->
+
+
+                    @foreach(var i in Model.numeros)
+                    {
+                        <tr>
+                            @foreach(var j in Model.numeros)
+                            {
+                                <td>dato</td>
+                            }
+                            <td><a class="btn btn-sm btn-primary" asp-page="Mora">Mora</a></td>
+                        </tr>
+                    }
+                    
+                        <!-- todo el codigo de trabajo-->
+
+
+
+                    </tbody>
+
+                </table>
+
+                <button class="btn btn-dark" onclick="history.back()">Regresar</button>
+
+            </div>
+        </div>
+    </body>
+</html>
