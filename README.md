@@ -393,7 +393,7 @@ Esta tabla se encarga de almacenar los diferentes tipos de ocupaciones de los cl
 
 - El atributo **ocupacion-id** es  la ****Llave Primaria**** y la identificacion para el tipo las ocupaciones regirstradas por el banco
 -  El atributo **titulo** es el nombre de la ocupacion
--  
+  
 ### Datos Laborales
 ```
 CREATE TABLE datos_laborales
@@ -420,7 +420,7 @@ Esta tabla se encarga de almacenar los datos laborales de los solicitantes a la 
 
 - El atributo **datos_laborales_id** es la **Llave Primaria** y sus registros se generan de manera automatica y secuencial 
 - El atributo **Ingreso_Mensual** es el la cantidad de promedio que percibe el solicitante/cliente
-- El atributo **ocupacion_id** es el ID de la ocupacion
+- El atributo **ocupacion_id** es el ID de la ocupacion y e una **Llave Foranea**
 - El atributo **Fecha_ingreso** es la fecha cuando empezo a laborar
   >En este caso funciona de la siguiente manera: año/dia/mes
 - El atributo **cargo** es el nombre del cargo que ostenta
@@ -446,14 +446,22 @@ create table Persona(
 );
 ```
 #### Ejemplo de la tabla
-|Persona_ID | P_nombre| S_nombre| P_apellido| S_apellido| correo| fecga_nacimiento|Direccion_id|Tipo_personaID|Tipo_DocumentoID
+|Persona_ID | P_nombre| S_nombre| P_apellido| S_apellido| correo| fecha_nacimiento|Direccion_id|Tipo_personaID|Tipo_DocumentoID
 |----------|---------|---------|------|-------|-----|----------|---------|---|---|
-|0505245009012| Rodolfo| martel|maradiaga|armijo|rodolfo@honduras.com|2023-12-03|1|1|1|
+|0505245009012| Rodolfo| martel|maradiaga|armijo|rodolfo@honduras.com|2450-12-03|1|1|1|
 
 Esta tabla se encarga de almacenar los datos personales de los solicitantes a la tarjeta de crédito
 
 - El atributo **Persona_ID** es la **Llave Primaria** y sus registros se generan de manera manual a traves del número de identificación de la persona por ejemplo:
-- > Honduras :
-  - > Numero de Identidad 0701207701011
-  - > RTN : 0701207701011
-  - > pasaporte: G010101
+  - > Honduras :
+    - > Numero de Identidad 0701207701011
+    - > RTN : 0701207701011
+    - > pasaporte: G010101
+- Los atributos **P_nombre, s_nombre,P_apellido,S_apellido** son las partes que conforman el nombre completo del solicitante
+- El atributo **Correo** Corresponde al correo electrónico del cliente
+- El atributos **Fecha_nacimiento** corresponde a la fecha de nacimiento del solicitante
+- El atributo **Direccion_id** es el ID de la dirección de resiencia conformada por el cliente y es una **Llave Foranea** que hace referencia a la tabla **Direccion**
+-  El atributo **Tipo_personaID** es el ID del tipo de persona que es el cliente, si representa a una entidad jurídica como lo es la empresa o una ONG o una entidad natural como lo es una persona y es una **Llave Foranea** que hace referencia a la Tabla **Tipo de Persona**
+- El atributo **Tipo_DocumentoID** es el ID del tipo de documento que utiliza la persona ya sea Cedula de Identidad, pasaporte etc... y es una **Llave Foranea** que hace referencia a la Tabla **Tipo DocumentoID**
+  
+  
