@@ -1011,3 +1011,39 @@ Esta tabla se encarga de almacenar los empleados que estan en el comite con sus 
 
 - El atributo **empleado_id**: Identificación única del empleado. Es una **Llave Foranea** que hace referencia al atributo **empleado_id** de la tabla **Empleado**
 - El atributo **comite_id**: Identificación del comité al que está asociado el empleado.Es una **Llave Foranea** que hace referencia al atributo **Comite_id** de la tabla **Comite**
+
+
+### Quejas
+```
+create table Quejas(
+	Quejas_ID integer,
+	Descripcion varchar(100),
+	fecha date,
+	Cliente_ID integer,
+	Empleado_ID integer,
+	constraint QuejaPK primary key (Quejas_ID),
+	constraint clientequejaFK foreign key (Cliente_ID) references Cliente(Cliente_ID),
+	constraint empleadosquejasFK foreign key (Empleado_ID) references Empleado(Empleado_ID)
+);
+
+```
+#### Ejemplo de la tabla
+
+| quejas_id | descripcion                                   | fecha       | cliente_id | empleado_id |
+|-----------|-----------------------------------------------|-------------|------------|-------------|
+| 1         | "La tarjeta no funcionó en el Super mercado" | "2045-01-01"| 1          | 1           |
+    
+
+
+
+  
+Esta tabla se encarga de almacenar las quejas hechas por los cliente
+
+- El atributo **quejas_id:** Identificador único de la queja.Esta columna contiene el número que identifica de manera única una queja en el sistema. Es una **Llave Primaria**
+- El atributo **descripcion:** Descripción de la queja. En esta columna se registra la descripción detallada de la queja presentada.
+- El atributo **fecha:** Fecha en que se registró la queja. Esta columna almacena la fecha en que se presentó la queja.
+**
+- El atributo **empleado_id**: Identificación única del empleado. Es una **Llave Foranea** que hace referencia al atributo **empleado_id** de la tabla **Empleado**
+
+- El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**. y el cliente que realizo la queja
+
