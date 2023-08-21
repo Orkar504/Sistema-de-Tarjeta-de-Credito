@@ -1047,3 +1047,27 @@ Esta tabla se encarga de almacenar las quejas hechas por los cliente
 
 - El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**. y el cliente que realizo la queja
 
+
+### Estado
+```
+create table Estado(
+	EstadoID integer,
+	Descripcion varchar(15),
+	constraint EstadoPK primary key (EstadoID)
+);
+
+```
+#### Ejemplo de la tabla
+
+| estadoid | descripcion  |
+|----------|--------------|
+| 1        | "Rechazada"  |
+| 2        | "En espera"  |
+| 3        | "Solicitada" |
+
+  
+Esta tabla se encarga de almacenar los estados posibles de la solicitud
+
+- El atributo **estadoid:** Identificador único del estado .Esta columna contiene el número que identifica el tipo de estado de estado de la solicitud. Es una **Llave Primaria**
+- El atributo **descripcion:** Descripción del los estados posibles de la solicitud.
+
