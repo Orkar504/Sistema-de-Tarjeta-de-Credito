@@ -10,47 +10,50 @@
     <h4>Estado de cuenta</h4>
     <hr />
     <div>
+        <a class="btn btn-primary" asp-page="./EstadoCuenta" asp-route-id="@Model.estadoCuenta.CuentaId"> Modificar</a> 
+        <a class="btn btn-primary" asp-page="./EstadoCuenta" asp-route-id="@Model.estadoCuenta.CuentaId"> Imprimir</a> 
         
-        <a class="btn btn-primary" asp-page="./EstadoCuenta">Modificar</a> |
-        <a class="btn btn-primary" asp-page="./EstadoCuenta">Implimir</a> |
         <button class="btn btn-dark" onclick="history.back()">Atrás</button>
         
     </div>
     <hr />
     <dl class="row">
 
-        <dt class="col-md-2">Cuenta</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dt class="col-md-2">numero de Cuenta</dt>
+        <dd class="col-sm-10">@Model.estadoCuenta.NumCuenta</dd>
+        
+        <dt class="col-md-2">numero de Cuenta</dt>
+        <dd class="col-sm-10">--> @Html.DisplayFor(model => model.estadoCuenta.Cuenta.NumCuenta)</dd>
 
         <dt class="col-sm-2">Cliente</dt>
-        <dd class="col-sm-10">Dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.ClienteId</dd>
 
         <dt class="col-sm-2">Pago minimo</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.PagoMinimo</dd>
 
         <dt class="col-sm-2">Pago total </dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.PagoTotal</dd>
 
         <dt class="col-sm-2">Plazo a meses</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.PlazoMeses</dd>
 
         <dt class="col-sm-2">Puntos totales </dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.PuntosTotales</dd>
 
         <dt class="col-sm-2">Puntos obtenidos</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.PuntosObtenidos</dd>
 
         <dt class="col-sm-2">Límite crédito</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.LimiteCredito</dd>
 
         <dt class="col-sm-2">Crédito disponible</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.CreditoDisponible</dd>
 
         <dt class="col-sm-2">Fecha de corte</dt>
-        <dd class="col-sm-10">dato</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.FechaCorte</dd>
 
         <dt class="col-sm-2">fecha maxima de pago</dt>
-        <dd class="col-sm-10">DATO</dd>
+        <dd class="col-sm-10">@Model.estadoCuenta.FechaMaximaPago</dd>
 
     </dl>
 

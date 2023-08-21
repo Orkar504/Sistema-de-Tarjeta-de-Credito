@@ -7,15 +7,16 @@
 
 
 
-<div class="card border-dark">
-    <div class="m-4">
-        <body>
+<body>
+    <div class="card border-dark">
+        <div class="m-4">
+
 
             <h4>Cuenta</h4>
             <hr />
             <div>
                 <a class="btn btn-primary" asp-page="./Cuenta">Crear cuenta</a> |
-                <a class="btn btn-dark" onclick="history.back()" >Atrás</a>
+                <a class="btn btn-dark" onclick="history.back()">Atrás</a>
             </div>
 
 
@@ -26,7 +27,7 @@
                     <tr>
                         <th class="col-sm-2">Número de cuenta</th>
                         <th class="col-sm-2">Saldo</th>
-                        <th class="col-sm-2">Nombre del cliente</th>
+                        <th class="col-sm-2">cliente id</th>
                         <th></th>
                     </tr>
 
@@ -34,21 +35,21 @@
 
                 <tbody>
 
-                    @foreach (var num in Model.aaa)
+                    @foreach (var c in Model.cuentas)
                     {
                         <tr>
                             <td class="col-sm-2">
-                                43827398
+                                @c.NumCuenta
                             </td>
                             <td class="col-sm-2">
-                                1,000.00
+                                @c.Saldo
                             </td>
                             <td class="col-sm-2">
-                                cliente 1
+                                @c.ClienteId
                             </td>
                             <td class="col-sm-4">
-                                <a class="btn btn-primary btn-sm" asp-page="./EstadoCuenta"> Ver estado de cuenta</a> |
-                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Modificar</a> | 
+                                <a class="btn btn-primary btn-sm" asp-page="./EstadoCuenta" asp-route-id="@c.CuentaId"> Ver estado de cuenta</a> |
+                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Modificar</a> |
                                 <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Eliminar</a>
                             </td>
                         </tr>
@@ -56,12 +57,12 @@
 
                 </tbody>
             </table>
-        </body>
 
+
+        </div>
     </div>
-</div>
 
-
+</body>
 
 
 
