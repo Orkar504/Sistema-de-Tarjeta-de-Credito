@@ -1137,6 +1137,36 @@ Esta tabla se encarga de almacenar los estados de las solicitudes
 - **fecha_solicitud**: Fecha en la que se realizó la solicitud, que es "2024-10-10".
 - **estado_solicitudid**: Identificador del estado de la solicitud. En este caso, **Llave Foranea** que hace referencia al atributo **estado_solicitudid** de la tabla **estado_solicitud**.
   
+
+### Referencia
+```
+CREATE TABLE IF NOT EXISTS public.referencia_personal
+(
+    persona_id character varying COLLATE pg_catalog."default",
+    referencia_id integer NOT NULL,
+    CONSTRAINT referencia_personal_pkey PRIMARY KEY (referencia_id),
+    CONSTRAINT "PersonaFK" FOREIGN KEY (persona_id)
+        REFERENCES public.persona (persona_id) MATCH SIMPLE
+        NOT VALID
+),
+
+
+```
+#### Ejemplo de la tabla
+
+| persona_id     | referencia_id |
+|----------------|---------------|
+| "0505245009011" | 1             |
+
+
   
+Esta tabla se encarga de los datos de referencias de los clientes 
+
+- **referencia_id**: Identificación de la referencia asociada a la persona. **Llave Primaria**
+- **persona_id**: Identificación única de la persona. es la **Llave Foranea** que hace referencia al atributo **persona_id** de la tabla **persona**
+
+  
+
+
 
 
