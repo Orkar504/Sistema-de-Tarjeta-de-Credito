@@ -899,3 +899,26 @@ Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usua
 - **pago_total**: Monto total del extrafinanciamiento.
 - **pago_mensual**: Monto mensual a pagar para el extrafinanciamiento.
 - **tarjeta_id**: Identificación única de la tarjeta asociada al extrafinanciamiento. Es una **llave foranea** que hacer referencia al atributo **tarjeta_id** de la tabla **Tarjeta**
+
+
+### Comite
+```
+Create table Comite(
+	Comite_ID integer,
+	Descripcion varchar(50),
+	constraint ComitePK primary key(Comite_ID)
+);
+
+
+```
+#### Ejemplo de la tabla
+| comite_id | descripcion |
+|-----------|-------------|
+| 1         | "Jefe"      |
+
+
+  
+Esta tabla se encarga de almacenar los diferentes tipos de transacciones como lo es crédito y débito.
+
+  - El atributo **Comite_id** es la **Llave Primaria** de la tabla y el identificador del miembor del comite
+- El atributo **descripcion** es la descripcion del puesto del comite
