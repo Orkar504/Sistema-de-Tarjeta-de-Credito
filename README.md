@@ -1,7 +1,7 @@
 # Sistema de Tarjeta de Credito
 ![Tarjeta de Credito](https://img.freepik.com/free-vector/illustration-credit-card-icon-isolated-white_1284-47653.jpg?w=250)
 
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 
 ## Proyecto de Bases de datos I sección 0700 Ingeniero Duarte UNAH
@@ -271,6 +271,8 @@ Esta tabla se encarga de Registrar las ciudades o pueblos en los que se encuentr
 - El atributo **Municipio_id** es una **Llave foranea** que hace referencia a **Municipio_id** de la tabla **Municipio** y sus registros se basan en los código de los paises mas el número de lista del departamento  mas la lista del municipio en orden alfabético ejemplo:
  > Distrito Central: 50408001
 
+
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Dirección
 ```
@@ -748,6 +750,7 @@ create table Tarjeta(
 - El atributo **fecha_maxima_pago** es la fecha máxima para realizar el pago del estado de cuenta, en el formato año-mes-día.
 - El atributo **fecha_corte** es la fecha en la que se realiza el corte de cuenta para el estado de cuenta, en el formato año-mes-día.
 
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Estado de Cuenta
 
 #### Ejemplo de la tabla
@@ -798,6 +801,7 @@ Esta tabla se encarga de almacenar los diferentes tipos de transacciones como lo
 - El atributo **Tipo_Transacción** es la **Llave Primaria** de la tabla y el identificador de la transacción
 - El atributo **nombre** es el nombre del tipo de transacción
 
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Transacciones
 ```
 create table Transacciones(
@@ -833,7 +837,7 @@ Esta tabla se encarga de almacenar las   transacciones que realiza el usuario.
 - El atributo **establecimiento**: Nombre del establecimiento donde se realizó la transacción.
 - El atributo **Ciudad_ID**: ID de la ciudad donde se realizó la transacción. Es una llave foranea que hace referencia al atributo **Ciudad_id** de la tabla **Ciudad**
 - El atributo **Tarjeta_ID**: ID de la tarjeta asociada a la transacción. Es una llave foranea que hace referencia al atributo **Tarjeta_ID** de la tabla **Tarjeta**
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Historial Transacciones
 ```
 create table Historial_Transacciones(
@@ -868,7 +872,7 @@ Esta tabla se encarga de almacenar el historial de transacciones que realiza el 
 - El atributo **descripcion**: Descripción de la transacción, en este caso, "Compra".
 - El atributo **transaccion_id**: Identificador único de la transacción asociada al historial. Este hace referencia al atributo **transaccion_id** de la tabla **Transaccion**
 
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### ExtraFinanciamiento
 ```
@@ -899,7 +903,8 @@ Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usua
 - **pago_total**: Monto total del extrafinanciamiento.
 - **pago_mensual**: Monto mensual a pagar para el extrafinanciamiento.
 - **tarjeta_id**: Identificación única de la tarjeta asociada al extrafinanciamiento. Es una **llave foranea** que hacer referencia al atributo **tarjeta_id** de la tabla **Tarjeta**
-
+  
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Comite
 ```
@@ -922,7 +927,7 @@ Esta tabla se encarga de almacenar los diferentes tipos de transacciones como lo
 
   - El atributo **Comite_id** es la **Llave Primaria** de la tabla y el identificador del miembor del comite
 - El atributo **descripcion** es la descripcion del puesto del comite
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Estatus
 ```
@@ -947,7 +952,7 @@ Esta tabla se encarga de almacenar los estatus
   - El atributo **Estatus_id** es la **Llave Primaria** de la tabla y el identificador del estatus
 - El atributo **Estatus** si esta atrasado o no, es un tipo booleano
 
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Mora
 ```
 CREATE TABLE IF NOT EXISTS public.mora
@@ -988,7 +993,7 @@ Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usua
 - El atributo **monto_**adecuado: Monto adecuado correspondiente a la mora.
 - El atributo **estatusid**: Identificación del estatus relacionado con la mora, es una **Llave Foránea** que hace referencia a **estatus_id** en la tabla **Estatus**
 - El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**.
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Comitexempleado
 ```
 create table ComiteXempleado(
@@ -1011,7 +1016,7 @@ Esta tabla se encarga de almacenar los empleados que estan en el comite con sus 
 
 - El atributo **empleado_id**: Identificación única del empleado. Es una **Llave Foranea** que hace referencia al atributo **empleado_id** de la tabla **Empleado**
 - El atributo **comite_id**: Identificación del comité al que está asociado el empleado.Es una **Llave Foranea** que hace referencia al atributo **Comite_id** de la tabla **Comite**
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Quejas
 ```
@@ -1046,7 +1051,7 @@ Esta tabla se encarga de almacenar las quejas hechas por los cliente
 - El atributo **empleado_id**: Identificación única del empleado. Es una **Llave Foranea** que hace referencia al atributo **empleado_id** de la tabla **Empleado**
 
 - El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**. y el cliente que realizo la queja
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Estado
 ```
@@ -1070,7 +1075,7 @@ Esta tabla se encarga de almacenar los estados posibles de la solicitud
 
 - El atributo **estadoid:** Identificador único del estado .Esta columna contiene el número que identifica el tipo de estado de estado de la solicitud. Es una **Llave Primaria**
 - El atributo **descripcion:** Descripción del los estados posibles de la solicitud.
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Estado_Solicitud
 ```
 create table Estado_Solicitud(
@@ -1102,7 +1107,7 @@ Esta tabla se encarga de almacenar los estados de las solicitudes
 - **comite_id**: Identificador del personal del comité relacionado con esta transición de estado. 
 
 
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Solicitud_Tarjeta
 ```
@@ -1137,7 +1142,7 @@ Esta tabla se encarga de almacenar los estados de las solicitudes
 - **fecha_solicitud**: Fecha en la que se realizó la solicitud, que es "2024-10-10".
 - **estado_solicitudid**: Identificador del estado de la solicitud. En este caso, **Llave Foranea** que hace referencia al atributo **estado_solicitudid** de la tabla **estado_solicitud**.
   
-
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 ### Referencia
 ```
 CREATE TABLE IF NOT EXISTS public.referencia_personal
@@ -1164,6 +1169,7 @@ Esta tabla se encarga de los datos de referencias de los clientes
 
 - **referencia_id**: Identificación de la referencia asociada a la persona. **Llave Primaria**
 - **persona_id**: Identificación única de la persona. es la **Llave Foranea** que hace referencia al atributo **persona_id** de la tabla **persona**
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 ### Pago Crédito
 ```
@@ -1196,5 +1202,6 @@ Esta tabla se encarga de registrar los pagos
 - **pago**: Monto del pago realizado, que es 10000.00.
 - **cliente_id**: Identificación única del cliente que realizó el pago. **Llave Foranea** que hace referencia al atributo **cliente_id** de la tabla **cliente**
 
+>https://github.com/Orkar504/Sistema-de-Tarjeta-de-Credito
 
 
