@@ -1165,8 +1165,36 @@ Esta tabla se encarga de los datos de referencias de los clientes
 - **referencia_id**: Identificación de la referencia asociada a la persona. **Llave Primaria**
 - **persona_id**: Identificación única de la persona. es la **Llave Foranea** que hace referencia al atributo **persona_id** de la tabla **persona**
 
-  
+### Pago Crédito
+```
+CREATE TABLE IF NOT EXISTS public.referencia_personal
+(
+    persona_id character varying COLLATE pg_catalog."default",
+    referencia_id integer NOT NULL,
+    CONSTRAINT referencia_personal_pkey PRIMARY KEY (referencia_id),
+    CONSTRAINT "PersonaFK" FOREIGN KEY (persona_id)
+        REFERENCES public.persona (persona_id) MATCH SIMPLE
+        NOT VALID
+),
 
+
+```
+#### Ejemplo de la tabla
+
+| pago_creditoid | fecha       | hora      | pago     | cliente_id |
+|----------------|-------------|-----------|----------|------------|
+| 1              | "2027-10-10" | "09:10:10" | 10000.00 | 1          |
+
+
+
+  
+Esta tabla se encarga de registrar los pagos
+
+- **pago_creditoid**: Identificador único del pago de crédito. **Llave Primaria**
+- **fecha**: Fecha en que se realizó el pago, que es "2027-10-10".
+- **hora**: Hora en que se realizó el pago, que es "09:10:10".
+- **pago**: Monto del pago realizado, que es 10000.00.
+- **cliente_id**: Identificación única del cliente que realizó el pago. **Llave Foranea** que hace referencia al atributo **cliente_id** de la tabla **cliente**
 
 
 
