@@ -1102,3 +1102,41 @@ Esta tabla se encarga de almacenar los estados de las solicitudes
 - **comite_id**: Identificador del personal del comité relacionado con esta transición de estado. 
 
 
+
+
+### Solicitud_Tarjeta
+```
+create table Estado_Solicitud(
+	Estado_SolicitudID integer,
+	EstadoID integer,
+	Descripcion varchar(100),
+	Fecha date,
+	Comite_ID integer,
+	constraint estado_solicitudPK primary key (Estado_SolicitudID),
+	constraint estadofk foreign key (EstadoID) references Estado(EstadoID),
+	constraint ComiteSolicitudFK foreign key (Comite_ID) references Comite(Comite_ID)
+);
+
+```
+#### Ejemplo de la tabla
+
+| solicitud_id | persona_id   | direccion_id | sucursal_id | tarjeta_id | fecha_solicitud | estado_solicitudid |
+|--------------|--------------|--------------|-------------|------------|-----------------|--------------------|
+| 1            | "0505245009012" | 1            | 1           | 1          | "2024-10-10"    | 1                  |
+  |
+
+
+  
+Esta tabla se encarga de almacenar los estados de las solicitudes
+
+- **solicitud_id**: Identificador único de la solicitud. es la **Llave Primaria** de la tabla y es identificador de la solicitud
+- **persona_id**: Identificación de la persona asociada con la solicitud.
+- **direccion_id**: Identificación de la dirección relacionada con la solicitud.
+- **sucursal_id**: Identificador de la sucursal en la que se realizó la solicitud. **Llave Foranea** que hace referencia a el atributo **sucursal_id** de la tabla **sucursal**
+- **tarjeta_id**: Identificador de la tarjeta relacionada con la solicitud. **Llave Foranea** que hace referencia a el atributo **tarjeta_id** de la tabla **Tarjeta**
+- **fecha_solicitud**: Fecha en la que se realizó la solicitud, que es "2024-10-10".
+- **estado_solicitudid**: Identificador del estado de la solicitud. En este caso, **Llave Foranea** que hace referencia al atributo **estado_solicitudid** de la tabla **estado_solicitud**.
+  
+  
+
+
