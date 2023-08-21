@@ -988,3 +988,26 @@ Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usua
 - El atributo **monto_**adecuado: Monto adecuado correspondiente a la mora.
 - El atributo **estatusid**: Identificación del estatus relacionado con la mora, es una **Llave Foránea** que hace referencia a **estatus_id** en la tabla **Estatus**
 - El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**.
+
+### Comitexempleado
+```
+create table ComiteXempleado(
+	Empleado_ID integer,
+	Comite_ID integer,
+	constraint empleadoComiteFK foreign key (Empleado_ID) references Empleado(Empleado_ID),
+	constraint comiteempleadoFK foreign key (Comite_ID) references Comite(Comite_ID)
+);
+```
+#### Ejemplo de la tabla
+
+| empleado_id | comite_id |
+|-------------|-----------|
+| 1           | 1         |
+
+
+
+  
+Esta tabla se encarga de almacenar los empleados que estan en el comite con sus roles
+
+- El atributo **empleado_id**: Identificación única del empleado. Es una **Llave Foranea** que hace referencia al atributo **empleado_id** de la tabla **Empleado**
+- El atributo **comite_id**: Identificación del comité al que está asociado el empleado.Es una **Llave Foranea** que hace referencia al atributo **Comite_id** de la tabla **Comite**
