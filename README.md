@@ -922,3 +922,69 @@ Esta tabla se encarga de almacenar los diferentes tipos de transacciones como lo
 
   - El atributo **Comite_id** es la **Llave Primaria** de la tabla y el identificador del miembor del comite
 - El atributo **descripcion** es la descripcion del puesto del comite
+
+
+### Estatus
+```
+
+CREATE TABLE Estatus
+(
+    "Estatus_id" integer NOT NULL,
+    "Estatus" boolean,
+    CONSTRAINT "Estatus_pkey" PRIMARY KEY ("Estatus_id")
+);
+```
+#### Ejemplo de la tabla
+| Estatus_id | Estatus |
+|-----------|-------------|
+| 1         | true    |
+|2|false|
+
+
+  
+Esta tabla se encarga de almacenar los estatus
+
+  - El atributo **Estatus_id** es la **Llave Primaria** de la tabla y el identificador del estatus
+- El atributo **Estatus** si esta atrasado o no, es un tipo booleano
+
+
+### Mora
+```
+CREATE TABLE IF NOT EXISTS public.mora
+(
+    moraid integer NOT NULL,
+    fecha date,
+    meses integer,
+    monto_adecuado numeric(10,2),
+    cliente_id integer,
+    estatusid integer,
+    CONSTRAINT morapk PRIMARY KEY (moraid),
+    CONSTRAINT "EstatusID" FOREIGN KEY (estatusid)
+        REFERENCES public."Estatus" ("Estatus_id") MATCH SIMPLE
+       ,
+    CONSTRAINT clientemorafk FOREIGN KEY (cliente_id)
+        REFERENCES public.cliente (cliente_id) MATCH SIMPLE
+      ,
+    CONSTRAINT checkmora CHECK (meses <= 12)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.mora
+    OWNER to postgres;
+```
+#### Ejemplo de la tabla
+
+| moraid | fecha       | meses | monto_adecuado | cliente_id | estatusid |
+|--------|-------------|-------|----------------|------------|----------|
+| 1      | "2025-02-02" | 11    | 100000.00     | 1          | 1        |
+
+
+Esta tabla se encarga de almacenar el extrafinanciamiento de la tarjeta del usuario.
+
+- El atributo **moraid**: Identificación única del registro de mora. Es la **Llave Principal**
+- El atributo **fecha:** Fecha asociada al registro de mora, en este caso, "2025-02-02".
+- El atributo **meses:** Número de meses de mora.
+- El atributo **monto_**adecuado: Monto adecuado correspondiente a la mora.
+- El atributo **estatusid**: Identificación del estatus relacionado con la mora, es una **Llave Foránea** que hace referencia a **estatus_id** en la tabla **Estatus**
+- El atributo **cliente_id**: ID del cliente relacionado con el estado de cuenta. es una **Llave Foránea** que hace referencia **cliente_Id** en la tabla **Cliente**.
