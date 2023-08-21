@@ -1071,3 +1071,34 @@ Esta tabla se encarga de almacenar los estados posibles de la solicitud
 - El atributo **estadoid:** Identificador único del estado .Esta columna contiene el número que identifica el tipo de estado de estado de la solicitud. Es una **Llave Primaria**
 - El atributo **descripcion:** Descripción del los estados posibles de la solicitud.
 
+### Estado_Solicitud
+```
+create table Estado_Solicitud(
+	Estado_SolicitudID integer,
+	EstadoID integer,
+	Descripcion varchar(100),
+	Fecha date,
+	Comite_ID integer,
+	constraint estado_solicitudPK primary key (Estado_SolicitudID),
+	constraint estadofk foreign key (EstadoID) references Estado(EstadoID),
+	constraint ComiteSolicitudFK foreign key (Comite_ID) references Comite(Comite_ID)
+);
+
+```
+#### Ejemplo de la tabla
+
+| estado_solicitudid | estadoid | descripcion           | fecha       | comite_id |
+|--------------------|----------|-----------------------|-------------|----------|
+| 1                  | 2        | "Revisando referencias" | "2026-10-10" | 1        |
+
+
+  
+Esta tabla se encarga de almacenar los estados de las solicitudes
+
+- **estado_solicitudid**: Un identificador único para el estado de la solicitud. **Llave Primaria**
+- **estadoid**: Un identificador que representa el estado específico. En este caso, corresponde al estado "En espera". **Llave Foranea** que hace referencia al atributo **estadoid** de la tabla **Estado**
+- **descripcion**: Una descripción asociada con el estado. En este caso, describe el estado como "Revisando referencias".
+- **fecha**: La fecha en la que ocurrió esta transición de estado, que es "2026-10-10".
+- **comite_id**: Identificador del personal del comité relacionado con esta transición de estado. 
+
+
