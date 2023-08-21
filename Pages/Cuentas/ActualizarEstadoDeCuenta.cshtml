@@ -1,0 +1,113 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Cuentas.ActualizarEstadoDeCuentaModel
+
+@{
+    ViewData["Title"] = "ActualizarEstadoDeCuenta";
+}
+
+
+
+
+<div class="card border-dark ">
+    <div class=" m-4">
+        <h4>Actualizar Estado De Cuenta</h4>
+        <hr />
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EstadoCuenta.EstadoCuentaId" />
+            
+
+                <table>
+                    <tr>
+                    <td class="m-5">
+                    <div class="m-3">
+
+                        <div class="form-group">
+                            Numero de cuenta
+                                <input asp-for="EstadoCuenta.NumCuenta" type="hidden" />
+                                <input value="@Model.EstadoCuenta.NumCuenta" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            Cliente id
+                            <input asp-for="EstadoCuenta.ClienteId" class="form-control" type="hidden"/>
+                            <input value="@Model.EstadoCuenta.ClienteId" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            Cuenta id
+                            <input asp-for="EstadoCuenta.CuentaId" class="form-control" type="hidden" />
+                            <input value="@Model.EstadoCuenta.CuentaId" class="form-control" disabled/>
+                        </div>
+
+                        <div class="form-group">
+                            Pago minimo
+                            <input asp-for="EstadoCuenta.PagoMinimo" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Pago total
+                                <input  asp-for="EstadoCuenta.PagoTotal" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Plazo meses
+                            <input asp-for="EstadoCuenta.PlazoMeses" class="form-control" />
+
+                        </div>
+
+                    </div>
+                </td>
+                <td> <div class="m-6"></div> </td>
+                <td class="m-5">
+
+                    <div class="m-3" >
+                        <div class="form-group">
+                            Puntos totales
+                            <input asp-for="EstadoCuenta.PuntosTotales" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Puntos obtenidos
+                            <input asp-for="EstadoCuenta.PuntosObtenidos" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Límite de crédito
+                            <input asp-for="EstadoCuenta.LimiteCredito" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Crédito disponible
+                            <input asp-for="EstadoCuenta.CreditoDisponible" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Fecha máxima de pago
+                            <input asp-for="fechamp" type="date" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            Fecha de corte
+                            <input asp-for="fechac" type="date" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+
+                    </td>
+                </tr>
+                </table>
+
+
+            <div class="form-group m-2">
+                <input type="submit" value="Guardar" class="btn btn-primary" /> | 
+                <a class="btn btn-dark" onclick="history.back()">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,7 +15,7 @@
             <h4>Cuenta</h4>
             <hr />
             <div>
-                <a class="btn btn-primary" asp-page="./Cuenta">Crear cuenta</a> |
+                <a class="btn btn-primary" asp-page="./CrearCuenta">Crear cuenta</a> |
                 <a class="btn btn-dark" onclick="history.back()">Atrás</a>
             </div>
 
@@ -25,6 +25,7 @@
 
                 <thead>
                     <tr>
+                        <th class="col-sm-2">Cuenta id</th>
                         <th class="col-sm-2">Número de cuenta</th>
                         <th class="col-sm-2">Saldo</th>
                         <th class="col-sm-2">cliente id</th>
@@ -39,6 +40,9 @@
                     {
                         <tr>
                             <td class="col-sm-2">
+                                @c.CuentaId
+                            </td>
+                            <td class="col-sm-2">
                                 @c.NumCuenta
                             </td>
                             <td class="col-sm-2">
@@ -48,9 +52,13 @@
                                 @c.ClienteId
                             </td>
                             <td class="col-sm-4">
-                                <a class="btn btn-primary btn-sm" asp-page="./EstadoCuenta" asp-route-id="@c.CuentaId"> Ver estado de cuenta</a> |
-                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Modificar</a> |
-                                <a class="btn btn-primary btn-sm" asp-page="./Cuenta">Eliminar</a>
+
+                                <form method="post">
+                                    <a class="btn btn-primary btn-sm" asp-page="./EstadoCuenta" asp-route-id="@c.CuentaId"> Ver estado de cuenta</a> |
+
+                                    <input class="btn btn-danger btn-sm" type="submit" asp-page="./Cuenta" asp-route-id="@c.CuentaId" value="Eliminar">
+                                </form>
+                                
                             </td>
                         </tr>
                     }

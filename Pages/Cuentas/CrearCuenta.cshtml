@@ -1,0 +1,47 @@
+﻿@page
+@model Sistema_de_Tarjeta_de_Credito.Pages.Cuentas.CrearCuentaModel
+
+@{
+    ViewData["Title"] = "Crear Cuenta";
+}
+
+<h1>Crear Cuenta</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Cuenta id
+                <input asp-for="cuenta.CuentaId" class="form-control" />
+                <span asp-validation-for="cuenta.CuentaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Numero de cuenta
+                <input asp-for="cuenta.NumCuenta" class="form-control" />
+                <span asp-validation-for="cuenta.NumCuenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Saldo
+                <input asp-for="cuenta.Saldo" class="form-control" />
+                <span asp-validation-for="cuenta.Saldo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Cliente id
+                <input asp-for="cuenta.ClienteId" class="form-control" />
+            </div>
+            <div  class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary m-1" /> |
+                <a class="btn btn-dark m-1" onclick="history.back()">Atras</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
